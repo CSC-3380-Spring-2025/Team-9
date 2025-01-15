@@ -16,8 +16,8 @@ Describe a little about what the project is about here.
 - Linux
 - Windows
 # Important Links
-Kanban Board: [link]
-Designs: [link]
+Kanban Board: [link]\
+Designs: [link]\
 Styles Guide(s): [link]
 
 # How to Run Dev and Test Environment
