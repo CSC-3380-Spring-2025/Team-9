@@ -1,14 +1,15 @@
 # [Name of the Project] : [Team Number]
 # Members
-Project Manager: [Name] ([GitHub Name])\
-Communications Lead: [Name] ([GitHub Name])\
-Git Master: [Name] ([GitHub Name])\
-Design Lead: [Name] ([GitHub Name])\
-Quality Assurance Tester: [Name] ([GitHub Name])
+Project Manager: Andrew Tran (atran53)\
+Communications Lead: Nicolae David-Trouard (nicolae-dt)\
+Git Master: Diego Albertini (Guinchi)\
+Design Lead: Aedan DeFrates (Fhlic)\
+Quality Assurance Tester: Troy Boatner (TroyBoatner)
 
 # About Our Software
 
-Describe a little about what the project is about here.
+Top down roguelike game, with random level generation and pixel art style.
+
 ## Platforms Tested on
 - MacOS
 - Android
