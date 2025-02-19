@@ -1,4 +1,4 @@
-# [Name of the Project] : [Team Number]
+# [Project Nine] : [Team 9]
 # Members
 Project Manager: Andrew Tran (atran53)\
 Communications Lead: Nicolae David-Trouard (nicolae-dt)\
