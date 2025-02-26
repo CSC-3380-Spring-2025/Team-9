@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
         Rb.linearVelocity = rollDirection * RollSpeed;
 
-        StartCoroutine(RollPlaceholderAnimation()); // placeholder animation until we get a proper roll animation
+        
 
         yield return new WaitForSeconds(RollDuration);
 
@@ -80,23 +80,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    private IEnumerator RollPlaceholderAnimation() // simple roll animation that rotates the player sprite 180 degrees
-    {
-        
-        //(its not perfect because it overrotates but since this is just a placeholder it should be fine for now)
-        
-        float elapsedTime = 0f;
-        float totalRotation = 180f;
-        float rotationSpeed = totalRotation / RollDuration; 
-
-         while (elapsedTime < RollDuration)
-        {
-            float rotationAmount = rotationSpeed * Time.deltaTime; 
-            transform.Rotate(0, 0, rotationAmount);
-            elapsedTime += Time.deltaTime;
-            yield return null; 
-        }
-    }
+   
 
 
 }
