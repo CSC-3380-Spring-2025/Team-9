@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float RollSpeed = 8f;
     public float RollDuration = 0.5f;
     public Rigidbody2D Rb;
+    public LayerMask WallLayer;
 
 
     private Vector2 _movement;
@@ -55,7 +56,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        Rb.MovePosition(Rb.position + _movement * MoveSpeed * Time.fixedDeltaTime); // moves the player
+        //Rb.MovePosition(Rb.position + _movement * MoveSpeed * Time.fixedDeltaTime); // moves the player
+        Vector2 targetPosition = Rb.position + _movement * MoveSpeed * Time.fixedDeltaTime;
+
+        if (!IsTouchingWall(Rb.position, targetPosition))
+        {
+            Rb.MovePosition(targetPosition); // only move if not touching wall
+        }
+
 
     }
 
@@ -70,17 +78,32 @@ public class PlayerMovement : MonoBehaviour
             rollDirection = _lastMoveDirection == Vector2.zero ? Vector2.right : _lastMoveDirection;
         }
 
-        Rb.linearVelocity = rollDirection * RollSpeed;
 
-        
-
+        Vector2 immCheck = Rb.position + rollDirection.normalized * 2f;  // check infront of where player is moving if roll would go thru a wall
+        if (IsTouchingWall(Rb.position, immCheck))
+        {
+            _isRolling = false;
+            yield break;
+        }
+    
+        Rb.linearVelocity = rollDirection.normalized * RollSpeed;
         yield return new WaitForSeconds(RollDuration);
 
+        Rb.linearVelocity = Vector2.zero;
         _isRolling = false;
     }
 
 
-   
+   private bool IsTouchingWall(Vector2 startPosition, Vector2 targetPosition)
+    {
+  
+        float checkDistance = Vector2.Distance(startPosition, targetPosition);
+        Vector2 direction = (targetPosition - startPosition).normalized;
+
+        // checks if the player is touching a wall by raycasting
+        RaycastHit2D hit = Physics2D.Raycast(startPosition, direction, checkDistance, WallLayer);
+        return hit.collider != null;
+    }
 
 
 }
