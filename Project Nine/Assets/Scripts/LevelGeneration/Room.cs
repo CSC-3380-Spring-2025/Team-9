@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Tilemaps;
-using System.Runtime.CompilerServices;
 
+/*
+ * The Room class creates an enum Grid to represent the locations of tile types for level layout generation
+ */
 public class Room
 {
     public enum Grid { FLOOR, WALL, EMPTY}
@@ -18,6 +19,9 @@ public class Room
 
     private List<Walker> walkerList;
 
+    /*
+     * Room object Constructor
+     */
     public Room()
     {
         walkerWidth = 32;
@@ -27,8 +31,12 @@ public class Room
         GenerateWalls();
     }
 
+    /*
+     * InitializeRoom sets all tiles to empty and sets the first tile at the walker position.
+     */
     private void InitializeRoom()
     {
+        //loop sets all tiles in enum array Grid to EMPTY
         for (int i = 0; i < roomGrid.GetLength(0); i++)
         {
             for (int j = 0; j < roomGrid.GetLength(1); j++)
@@ -36,22 +44,31 @@ public class Room
                 roomGrid[i, j] = Grid.EMPTY;
             }
         }
+        //Initializes a list of walkers
         walkerList = new List<Walker>();
 
+        //Initializes walker position
         Vector2Int walkerPos = new Vector2Int((int)walkerHeight/2, (int)walkerWidth/2);
 
+        //constructs first walker
         Walker curWalker = new Walker(walkerPos, GetDirection(), 0.5f);
 
         walkerList.Add(curWalker);
 
+        //sets tile of walker to floor Tile
         roomGrid[walkerPos.x, walkerPos.y] = Grid.FLOOR;
 
         floorCount++;
     }
+    /*
+     * Uses a random walker algorithm that runs until the fill percentage is met
+     */
     private void GenerateFloor()
     {
+        //While the % of floor tiles is less than the desired fillPercentage...
         while((float)floorCount/(float)((walkerHeight-2)*(walkerWidth-2)) < fillPercentage)
         {
+            //...iterate through each walker in walkerList...
             foreach (Walker walker in walkerList)
             {
                 Vector2Int newWalkerPos = new Vector2Int((int)walker.Position.x, (int)walker.Position.y);
@@ -61,6 +78,7 @@ public class Room
                     floorCount++;
                 }
             }
+            //...and perform following methods.
             RemoveWalker();
             ChangeDirection();
             DuplicateWalker();
