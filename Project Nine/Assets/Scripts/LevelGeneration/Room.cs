@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 /*
  * The Room class creates an enum Grid to represent the locations of tile types for level layout generation
@@ -78,13 +79,16 @@ public class Room
                     floorCount++;
                 }
             }
-            //...and perform following methods.
+            //...and perform following methods. 
             RemoveWalker();
             ChangeDirection();
             DuplicateWalker();
             UpdateWalkerPosition();
         }
     }
+    /*
+     * Sets perimeter of FLOOR enums with the enum WALL
+     */
     private void GenerateWalls()
     {
         for (int i = 0; i < roomGrid.GetLength(0); i++)
@@ -129,6 +133,9 @@ public class Room
             }
         }
     }
+    /*
+     * Method for deleting a walker
+     */
     private void RemoveWalker()
     {
         int updatedCount = walkerList.Count;
@@ -141,6 +148,9 @@ public class Room
             }
         }
     }
+    /*
+     * Method for changing the direction of a walker
+     */
     private void ChangeDirection()
     {
         for (int i = 0; i < walkerList.Count; i++)
@@ -153,6 +163,9 @@ public class Room
             }
         }
     }
+    /*
+     * Method for duplicating a walker
+     */
     private void DuplicateWalker()
     {
         int updateCount = walkerList.Count;
@@ -167,17 +180,25 @@ public class Room
             }
         }
     }
+    /*
+     * Method for updating the position of the walker
+     */
     private void UpdateWalkerPosition()
     {
         for (int i = 0; i < walkerList.Count; i++)
         {
             Walker foundWalker = walkerList[i];
             foundWalker.Position += foundWalker.Direction;
+            //the position of the walker is clamped so that the perimeter is never reached by the walker so that wall tiles do not exceede the bouds of the array
             foundWalker.Position.x = Mathf.Clamp(foundWalker.Position.x, 1, walkerHeight - 2);
             foundWalker.Position.y = Mathf.Clamp(foundWalker.Position.y, 1, walkerWidth - 2);
             walkerList[i] = foundWalker;
         }
     }
+    /*
+     * gives a random direction
+     * @returns {Vector2} default, up, down, left, right 
+     */
     private Vector2 GetDirection()
     {
         int index = (Mathf.FloorToInt(UnityEngine.Random.value * 3.99f));
@@ -190,6 +211,9 @@ public class Room
             default: return Vector2.zero;
         }
     }
+    /*
+     * @returns the position of the soonest, most extreme bottom, FLOOR
+     */
     public Vector2Int GetDownMostFloor()
     {
         for(int y = 0; y < roomGrid.GetLength(0); y++)
@@ -202,6 +226,9 @@ public class Room
         }
         return Vector2Int.zero;
     }
+    /*
+     * @returns the position of the soonest, most extreme top, FLOOR
+     */
     public Vector2Int GetUpMostFloor()
     {
         for (int y = roomGrid.GetLength(0)-1; y >= 0; y--)
@@ -214,6 +241,9 @@ public class Room
         }
         return Vector2Int.zero;
     }
+    /*
+     * @returns the position of the soonest, most extreme left, FLOOR
+     */
     public Vector2Int GetLeftMostFloor()
     {
         for (int x = 0; x < roomGrid.GetLength(1); x++)
@@ -226,6 +256,9 @@ public class Room
         }
         return Vector2Int.zero;
     }
+    /*
+     * @returns the position of the soonest, most extreme right, FLOOR
+     */
     public Vector2Int GetRightMostFloor()
     {
         for (int x = roomGrid.GetLength(0) - 1; x >= 0; x--)

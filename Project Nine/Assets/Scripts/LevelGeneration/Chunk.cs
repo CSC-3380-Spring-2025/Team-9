@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+/*
+ * The chunk class is created as a group of 4 rooms aranged in space
+ */
 public class Chunk
 {
     public List<Room> roomList;
@@ -13,12 +16,19 @@ public class Chunk
 
     public Vector2 chunkPosition = Vector2.zero;
     public Vector2 ChunkDirection = Vector2.zero;
+    /*
+     * Constuctor for Chunk class
+     * Initializes SetChunk() and GenerateHalls() methods
+     */
     public Chunk()
     {
         SetChunk();
         GenerateHalls();
     }
-    void SetChunk()
+    /*
+     * Method for setting the positions of rooms in the chunks
+     */
+    private void SetChunk()
     {
         head.roomDirection = Vector2.zero;
 
@@ -42,7 +52,11 @@ public class Chunk
             roomList[i].roomPosition = roomList[i].roomPosition + roomList[i].roomDirection;
         }
     }
-    void GenerateHalls()
+    /*
+     * Method for generating hallways between rooms within the chunk
+     * starts with the last chunk and works backwards
+     */
+    private void GenerateHalls()
     {
         for (int i = roomPerChunk -1; i > 0; i--)
         {
@@ -51,6 +65,7 @@ public class Chunk
             Vector2Int tileVector1;
             Vector2Int tileVector2;
 
+            //case where chunk moved up
             if (connectionDirection == Vector2.up)
             {
                 tileVector1 = Chunk.HallAlignmentUp(roomList[i], roomList[i - 1]);
@@ -70,6 +85,7 @@ public class Chunk
                 }
 
             }
+            //down
             else if (connectionDirection == Vector2.down)
             {
                 tileVector1 = Chunk.HallAlignmentDown(roomList[i], roomList[i - 1]);
@@ -89,6 +105,7 @@ public class Chunk
                     tileVector2 = tileVector2 + Vector2Int.down;
                 }
             }
+            //left
             else if (connectionDirection == Vector2.left)
             {
                 tileVector1 = Chunk.HallAlignmentLeft(roomList[i], roomList[i - 1]);
@@ -107,6 +124,7 @@ public class Chunk
                     tileVector2 = tileVector2 + Vector2Int.left;
                 }
             }
+            //right
             else if (connectionDirection == Vector2.right)
             {
                 tileVector1 = Chunk.HallAlignmentRight(roomList[i], roomList[i - 1]);
