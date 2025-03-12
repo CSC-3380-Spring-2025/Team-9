@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 public class Room
 {
-    public enum Grid { FLOOR, WALL, EMPTY}
+    public enum Grid { FLOOR, WALL, EMPTY }
     public Grid[,] roomGrid = new Grid[32,32];
     public Vector2 roomDirection;
     public Vector2 roomPosition = new Vector2(0, 0);
