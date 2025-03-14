@@ -3,32 +3,42 @@ using System.Collections.Generic;
 
 public class Chunk
 {
-    public List<Room> roomList;
-    public int roomPerChunk = 4;
-
+    //Rooms are created with specifying names to keep track of connections
     public Room head = new Room();
     public Room tail = new Room();
     public Room body1 = new Room();
     public Room body2 = new Room();
 
+    //roomList is set up to store the following rooms in an iterable array
+    public List<Room> roomList = new List<Room>();
+    
+
+    //chunkPosition and ChunkDirection are set up for keeping track of where in the level each chunk is pushed (all chunks start at zero)
     public Vector2 chunkPosition = Vector2.zero;
     public Vector2 ChunkDirection = Vector2.zero;
+    
+    /*
+     * 
+     */
     public Chunk()
     {
         SetChunk();
         GenerateHalls();
     }
-    void SetChunk()
-    {
+
+    /*
+     * This Method is responsible for the
+     */
+    private void SetChunk()
+    { 
         head.roomDirection = Vector2.zero;
 
-        roomList = new List<Room>();
         roomList.Add(head);
         roomList.Add(body1);
         roomList.Add(body2);
         roomList.Add(tail);
 
-        for (int i = 1; i < roomPerChunk; i++)
+        for (int i = 1; i < roomList.Count; i++)
         {
             roomList[i].roomPosition = roomList[i - 1].roomPosition;
             roomList[i].roomDirection = GetDirection();
@@ -44,7 +54,7 @@ public class Chunk
     }
     void GenerateHalls()
     {
-        for (int i = roomPerChunk -1; i > 0; i--)
+        for (int i = roomList.Count - 1; i > 0; i--)
         {
             Vector2 connectionDirection;
             connectionDirection = roomList[i].roomDirection * -1;
