@@ -70,7 +70,7 @@ public class Chunk
      * (by far the worst method I have ever written, needs to be replaced BAD)
      * 
      */
-    void GenerateHalls()
+    private void GenerateHalls()
     {
         //Most outer loop is responsible for working backwards within the room list to set the halls of the rooms
         for (int i = roomList.Count - 1; i > 0; i--)
@@ -219,6 +219,10 @@ public class Chunk
     }
     
     /*
+     * This Method is used to check the collisions between chunks
+     * 
+     * @param Chunk chunk, is checked against the use case chunk to check for collisions of rooms within both chunks
+     * 
      * 
      */
     public bool CheckCollision(Chunk chunk)
@@ -237,7 +241,9 @@ public class Chunk
     }
 
     /*
+     * Method for arbitrating a random direction
      * 
+     * @return Vector2.up,down,left,right
      */
     public static Vector2 GetDirection()
     {
@@ -253,7 +259,10 @@ public class Chunk
     }
 
     /*
+     * This Method is responsible for connecting halls where the prev room is above the target
      * 
+     * @param Room targetRoom, is used to compare where a position most extreme position for connecting to the preceding room
+     * @param Room PrecedingRoom, checked for a plausible location for connection
      */
     private static Vector2Int HallAlignmentUp(Room targetRoom, Room PrecedingRoom)
     {
@@ -277,8 +286,11 @@ public class Chunk
     }
 
     /*
-     * 
-     */
+    * This Method is responsible for connecting halls where the prev room is bellow the target
+    * 
+    * @param Room targetRoom, is used to compare where a position most extreme position for connecting to the preceding room
+    * @param Room PrecedingRoom, checked for a plausible location for connection
+    */
     private static Vector2Int HallAlignmentDown(Room targetRoom, Room PrecedingRoom)
     {
         for (int y = 0; y < targetRoom.roomGrid.GetLength(0); y++)
@@ -301,8 +313,11 @@ public class Chunk
     }
 
     /*
-     * 
-     */
+    * This Method is responsible for connecting halls where the prev room is left the target
+    * 
+    * @param Room targetRoom, is used to compare where a position most extreme position for connecting to the preceding room
+    * @param Room PrecedingRoom, checked for a plausible location for connection
+    */
     private static Vector2Int HallAlignmentLeft(Room targetRoom, Room PrecedingRoom)
     {
         for (int x = 0; x < targetRoom.roomGrid.GetLength(0); x++)
@@ -325,8 +340,11 @@ public class Chunk
     }
 
     /*
-     * 
-     */
+    * This Method is responsible for connecting halls where the prev room is right the target
+    * 
+    * @param Room targetRoom, is used to compare where a position most extreme position for connecting to the preceding room
+    * @param Room PrecedingRoom, checked for a plausible location for connection
+    */
     private static Vector2Int HallAlignmentRight(Room targetRoom, Room PrecedingRoom)
     {
         for (int x = targetRoom.roomGrid.GetLength(0) - 1; x >= 0; x--)
