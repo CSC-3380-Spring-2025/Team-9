@@ -18,7 +18,11 @@ public class Chunk
     public Vector2 ChunkDirection = Vector2.zero;
     
     /*
+     * Createion for Chunk object
      * 
+     * @stepts:
+     * a) SetChunk()
+     * b) GenerateWalls()
      */
     public Chunk()
     {
@@ -27,23 +31,31 @@ public class Chunk
     }
 
     /*
-     * This Method is responsible for the
+     * This Method is responsible for adding rooms together and moving each room till there are no collisions between rooms
+     * Additionally the room sets the position of each room
      */
     private void SetChunk()
     { 
+        //Sets the head room dir to (0,0)
         head.roomDirection = Vector2.zero;
 
+        //lines 42-46: adds the rooms of chunk to the roomList 
         roomList.Add(head);
         roomList.Add(body1);
         roomList.Add(body2);
         roomList.Add(tail);
 
+        //Outer for loop beggins at body1 (head room will not move) and sets the position of the rooms with continuity
         for (int i = 1; i < roomList.Count; i++)
         {
+            //sets the position of the next room to position of the last
             roomList[i].roomPosition = roomList[i - 1].roomPosition;
+
+            //gives new dir to the curr room
             roomList[i].roomDirection = GetDirection();
             Vector2 oposite = roomList[i].roomDirection * -1;
 
+            //inner while loop checks the direction of the previous room so that the new direction of the cur room will not move back over the prev room
             while (oposite.Equals(roomList[i - 1].roomDirection))
             {
                 roomList[i].roomDirection = GetDirection();
@@ -52,12 +64,18 @@ public class Chunk
             roomList[i].roomPosition = roomList[i].roomPosition + roomList[i].roomDirection;
         }
     }
+
+    /*
+     * This Method is responsible for the generation of halls between rooms and chunks
+     * (by far the worst method I have ever written, needs to be replaced BAD)
+     */
     void GenerateHalls()
     {
+        //Most outer loop is responsible for working backwards within the room list to set the halls of the rooms
         for (int i = roomList.Count - 1; i > 0; i--)
         {
-            Vector2 connectionDirection;
-            connectionDirection = roomList[i].roomDirection * -1;
+
+            Vector2 connectionDirection = roomList[i].roomDirection * -1;
             Vector2Int tileVector1;
             Vector2Int tileVector2;
 
@@ -158,22 +176,6 @@ public class Chunk
             }
         }
         return false;
-    }
-    public Vector2 GetHeadPosition()
-    {
-        return head.roomPosition;
-    }
-    public Vector2 GetTailPosition()
-    {
-        return tail.roomPosition;
-    }
-    public Vector2 GetBody1Position()
-    {
-        return body1.roomPosition;
-    }
-    public Vector2 GetBody2Position()
-    {
-        return body2.roomPosition;
     }
     public static Vector2 GetDirection()
     {
