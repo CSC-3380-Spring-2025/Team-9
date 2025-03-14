@@ -68,86 +68,134 @@ public class Chunk
     /*
      * This Method is responsible for the generation of halls between rooms and chunks
      * (by far the worst method I have ever written, needs to be replaced BAD)
+     * 
      */
     void GenerateHalls()
     {
         //Most outer loop is responsible for working backwards within the room list to set the halls of the rooms
         for (int i = roomList.Count - 1; i > 0; i--)
         {
-
+            //ConnectionDirection points in the direction of the previous room
             Vector2 connectionDirection = roomList[i].roomDirection * -1;
+
+            //the tileVectors are responsible for setting up the positions in which the floor/wall tiles will be placed
             Vector2Int tileVector1;
             Vector2Int tileVector2;
 
+            //if the previous room is the above the cur room then...
             if (connectionDirection == Vector2.up)
             {
+                //tileVector is set to an appropriate position with the AlignmentUp method
                 tileVector1 = Chunk.HallAlignmentUp(roomList[i], roomList[i - 1]);
+
+                //for loop is responsible for placing tiles in the cur room
                 for (int y = tileVector1.y; y < roomList[i].roomGrid.GetLength(0); y++)
                 {
+                    //FLOOR is placed
                     roomList[i].roomGrid[tileVector1.x, y] = Room.Grid.FLOOR;
+
+                    //both if methods check the tiles next to the new FLOOR tiles to place a WALL
                     if (roomList[i].roomGrid[tileVector1.x + 1, y] != Room.Grid.FLOOR) { roomList[i].roomGrid[tileVector1.x + 1, y] = Room.Grid.WALL; }
                     if (roomList[i].roomGrid[tileVector1.x - 1, y] != Room.Grid.FLOOR) { roomList[i].roomGrid[tileVector1.x - 1, y] = Room.Grid.WALL; }
                 }
                 tileVector2 = new Vector2Int(tileVector1.x, 0);
+
+                //while loop is responsible for setting the tiles in the next room
                 while (roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y] != Room.Grid.FLOOR)
                 {
+                    //FLOOR is placed
                     roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y] = Room.Grid.FLOOR;
+
+                    //both if methods check the tiles next to the new FLOOR tiles to place a WALL
                     if (roomList[i - 1].roomGrid[tileVector2.x + 1, tileVector2.y] != Room.Grid.FLOOR) { roomList[i - 1].roomGrid[tileVector2.x + 1, tileVector2.y] = Room.Grid.WALL; }
                     if (roomList[i - 1].roomGrid[tileVector2.x - 1, tileVector2.y] != Room.Grid.FLOOR) { roomList[i - 1].roomGrid[tileVector2.x - 1, tileVector2.y] = Room.Grid.WALL; }
                     tileVector2 = tileVector2 + Vector2Int.up;
                 }
 
             }
+            //if the previous room is the below the cur room then...
             else if (connectionDirection == Vector2.down)
             {
                 tileVector1 = Chunk.HallAlignmentDown(roomList[i], roomList[i - 1]);
+
+                //for loop is responsible for placing tiles in the cur room
                 for (int y = tileVector1.y; y >= 0; y--)
                 {
+                    //FLOOR is placed
                     roomList[i].roomGrid[tileVector1.x, y] = Room.Grid.FLOOR;
+
+                    //both if methods check the tiles next to the new FLOOR tiles to place a WALL
                     if (roomList[i].roomGrid[tileVector1.x + 1, y] != Room.Grid.FLOOR) { roomList[i].roomGrid[tileVector1.x + 1, y] = Room.Grid.WALL; }
                     if (roomList[i].roomGrid[tileVector1.x - 1, y] != Room.Grid.FLOOR) { roomList[i].roomGrid[tileVector1.x - 1, y] = Room.Grid.WALL; }
                 }
                 tileVector2 = new Vector2Int(tileVector1.x, 31);
+
+                //while loop is responsible for setting the tiles in the next room
                 while (roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y] != Room.Grid.FLOOR)
                 {
+                    //FLOOR is placed
                     roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y] = Room.Grid.FLOOR;
+
+                    //both if methods check the tiles next to the new FLOOR tiles to place a WALL
                     if (roomList[i - 1].roomGrid[tileVector2.x + 1, tileVector2.y] != Room.Grid.FLOOR) { roomList[i - 1].roomGrid[tileVector2.x + 1, tileVector2.y] = Room.Grid.WALL; }
                     if (roomList[i - 1].roomGrid[tileVector2.x - 1, tileVector2.y] != Room.Grid.FLOOR) { roomList[i - 1].roomGrid[tileVector2.x - 1, tileVector2.y] = Room.Grid.WALL; }
                
                     tileVector2 = tileVector2 + Vector2Int.down;
                 }
             }
+            //if the previous room is the left of the cur room then...
             else if (connectionDirection == Vector2.left)
             {
                 tileVector1 = Chunk.HallAlignmentLeft(roomList[i], roomList[i - 1]);
+
+                //for loop is responsible for placing tiles in the cur room
                 for (int x = tileVector1.x; x >= 0; x--)
                 {
+                    //FLOOR is placed
                     roomList[i].roomGrid[x, tileVector1.y] = Room.Grid.FLOOR;
+
+                    //both if methods check the tiles next to the new FLOOR tiles to place a WALL
                     if (roomList[i].roomGrid[x, tileVector1.y + 1] != Room.Grid.FLOOR) { roomList[i].roomGrid[x, tileVector1.y + 1] = Room.Grid.WALL; }
                     if (roomList[i].roomGrid[x, tileVector1.y - 1] != Room.Grid.FLOOR) { roomList[i].roomGrid[x, tileVector1.y - 1] = Room.Grid.WALL; }
                 }
                 tileVector2 = new Vector2Int(31, tileVector1.y);
+
+                //while loop is responsible for setting the tiles in the next room
                 while (roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y] != Room.Grid.FLOOR)
                 {
+                    //FLOOR is placed
                     roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y] = Room.Grid.FLOOR;
+
+                    //both if methods check the tiles next to the new FLOOR tiles to place a WALL
                     if (roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y + 1] != Room.Grid.FLOOR) { roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y + 1] = Room.Grid.WALL; }
                     if (roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y - 1] != Room.Grid.FLOOR) { roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y - 1] = Room.Grid.WALL; }
                     tileVector2 = tileVector2 + Vector2Int.left;
                 }
             }
+            //if the previous room is the right the cur room then...
             else if (connectionDirection == Vector2.right)
             {
                 tileVector1 = Chunk.HallAlignmentRight(roomList[i], roomList[i - 1]);
+
+                //for loop is responsible for placing tiles in the cur room
                 for (int x = tileVector1.x; x < roomList[i].roomGrid.GetLength(0); x++)
                 {
+                    //FLOOR is placed
                     roomList[i].roomGrid[x, tileVector1.y] = Room.Grid.FLOOR;
+
+                    //both if methods check the tiles next to the new FLOOR tiles to place a WALL
                     if (roomList[i].roomGrid[x, tileVector1.y + 1] != Room.Grid.FLOOR) { roomList[i].roomGrid[x, tileVector1.y + 1] = Room.Grid.WALL; }
                     if (roomList[i].roomGrid[x, tileVector1.y - 1] != Room.Grid.FLOOR) { roomList[i].roomGrid[x, tileVector1.y - 1] = Room.Grid.WALL; }
                 }
                 tileVector2 = new Vector2Int(0, tileVector1.y);
+
+                //while loop is responsible for setting the tiles in the next room
                 while (roomList[i-1].roomGrid[tileVector2.x, tileVector2.y] != Room.Grid.FLOOR)
                 {
+                    //FLOOR is placed
                     roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y] = Room.Grid.FLOOR;
+
+                    //both if methods check the tiles next to the new FLOOR tiles to place a WALL
                     if (roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y + 1] != Room.Grid.FLOOR) { roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y + 1] = Room.Grid.WALL; }
                     if (roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y - 1] != Room.Grid.FLOOR) { roomList[i - 1].roomGrid[tileVector2.x, tileVector2.y - 1] = Room.Grid.WALL; }
                     tileVector2 = tileVector2 + Vector2Int.right;
@@ -155,6 +203,12 @@ public class Chunk
             }
         }
     }
+    
+    /*
+     * This Method is reponsible for moving all rooms withing a chunk, the chunk itself, and updating all positions
+     * 
+     * @param Vector2 dir, responsible for determining the direction that the room/chunk will move in
+     */
     public void MoveChunk(Vector2 dir)
     {
         foreach (Room room in roomList)
@@ -163,6 +217,10 @@ public class Chunk
         }
         chunkPosition = chunkPosition + dir;
     }
+    
+    /*
+     * 
+     */
     public bool CheckCollision(Chunk chunk)
     {
         foreach(Room roomInstance in this.roomList)
@@ -177,6 +235,10 @@ public class Chunk
         }
         return false;
     }
+
+    /*
+     * 
+     */
     public static Vector2 GetDirection()
     {
         int index = (Mathf.FloorToInt(UnityEngine.Random.value * 3.99f));
@@ -189,6 +251,10 @@ public class Chunk
             default: return Vector2.zero;
         }
     }
+
+    /*
+     * 
+     */
     private static Vector2Int HallAlignmentUp(Room targetRoom, Room PrecedingRoom)
     {
         for(int y = targetRoom.roomGrid.GetLength(0) - 1; y >= 0; y-- )
@@ -209,6 +275,10 @@ public class Chunk
         }
         return Vector2Int.zero;
     }
+
+    /*
+     * 
+     */
     private static Vector2Int HallAlignmentDown(Room targetRoom, Room PrecedingRoom)
     {
         for (int y = 0; y < targetRoom.roomGrid.GetLength(0); y++)
@@ -229,6 +299,10 @@ public class Chunk
         }
         return Vector2Int.zero;
     }
+
+    /*
+     * 
+     */
     private static Vector2Int HallAlignmentLeft(Room targetRoom, Room PrecedingRoom)
     {
         for (int x = 0; x < targetRoom.roomGrid.GetLength(0); x++)
@@ -249,6 +323,10 @@ public class Chunk
         }
         return Vector2Int.zero;
     }
+
+    /*
+     * 
+     */
     private static Vector2Int HallAlignmentRight(Room targetRoom, Room PrecedingRoom)
     {
         for (int x = targetRoom.roomGrid.GetLength(0) - 1; x >= 0; x--)
