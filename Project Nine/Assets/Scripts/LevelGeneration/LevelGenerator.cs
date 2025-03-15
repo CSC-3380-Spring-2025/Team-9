@@ -31,30 +31,34 @@ public class LevelGenerator : MonoBehaviour
             //inner foreach loop iterates through all rooms in the cur chunk
             foreach(Room room in chunk.roomList)
             {
-                //location initialization for indevidual room tileplacemtn
-                Vector3Int initialTilePlacer = new Vector3Int((int)room.roomPosition.x , (int)room.roomPosition.y, 0);
+                CycleRoom(room);
+            }
+        }
+    }
+    private void CycleRoom(Room room)
+    {
+        //location initialization for indevidual room tileplacemtn
+        Vector3Int initialTilePlacer = new Vector3Int((int)room.roomPosition.x, (int)room.roomPosition.y, 0);
 
-                //nested for loop iterates throough each position in a 2-D enum Grid[,] for the cur room
-                for(int i = 0; i < room.roomGrid.GetLength(0); i++)
+        //nested for loop iterates throough each position in a 2-D enum Grid[,] for the cur room
+        for (int i = 0; i < room.roomGrid.GetLength(0); i++)
+        {
+            for (int j = 0; j < room.roomGrid.GetLength(1); j++)
+            {
+                Vector3Int tilePlacer = new Vector3Int(initialTilePlacer.x + i, initialTilePlacer.y + j, 0);
+
+                //checks to see if the Grid enum in the room is set to floor
+                if (room.roomGrid[i, j] == Room.Grid.FLOOR)
                 {
-                    for(int j = 0; j < room.roomGrid.GetLength(1); j++)
-                    {
-                        Vector3Int tilePlacer = new Vector3Int(initialTilePlacer.x + i, initialTilePlacer.y + j, 0);
-                        
-                        //checks to see if the Grid enum in the room is set to floor
-                        if (room.roomGrid[i,j] == Room.Grid.FLOOR)
-                        {
-                            //places floor tile and adds to tilecount
-                            tilemap.SetTile(tilePlacer, floor);
-                            tileCount++;
-                        }
-                        //checks if the Grid enum in the room is set to wall
-                        if (room.roomGrid[i,j] == Room.Grid.WALL)
-                        {
-                            //places wall tile
-                            tilemap.SetTile(tilePlacer, wall);
-                        }
-                    }
+                    //places floor tile and adds to tilecount
+                    tilemap.SetTile(tilePlacer, floor);
+                    tileCount++;
+                }
+                //checks if the Grid enum in the room is set to wall
+                if (room.roomGrid[i, j] == Room.Grid.WALL)
+                {
+                    //places wall tile
+                    tilemap.SetTile(tilePlacer, wall);
                 }
             }
         }
