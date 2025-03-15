@@ -30,7 +30,6 @@ public class WalkerRoom1x1 : AbstractWalkerRoom
             UpdateWalkerPosition();
         }
     }
-
     protected override void RemoveWalker()
     {
         int updatedCount = walkerList.Count;
