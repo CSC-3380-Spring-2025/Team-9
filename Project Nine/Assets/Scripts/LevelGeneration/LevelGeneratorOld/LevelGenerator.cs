@@ -26,10 +26,10 @@ public class LevelGenerator : MonoBehaviour
         tileCount = default;
 
         //outer foreach loop iterates through all chunks in the level
-        foreach (Chunk chunk in level.chunkList)
+        foreach(Chunk chunk in level.chunkList)
         {
             //inner foreach loop iterates through all rooms in the cur chunk
-            foreach (Room room in chunk.roomList)
+            foreach(Room room in chunk.roomList)
             {
                 CycleRoom(room);
             }
