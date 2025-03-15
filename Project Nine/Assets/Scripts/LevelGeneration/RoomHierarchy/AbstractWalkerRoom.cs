@@ -7,9 +7,9 @@ public abstract class AbstractWalkerRoom : AbstractRoom
 
     protected float fillPercent = .4f;
 
-    protected List<Walker> walkerList;
+    public List<Walker> walkerList;
 
-    protected Grid[,] roomGrid = new Grid[32, 32];
+    public Grid[,] roomGrid = new Grid[32, 32];
 
     protected override void InitializeRoom()
     {

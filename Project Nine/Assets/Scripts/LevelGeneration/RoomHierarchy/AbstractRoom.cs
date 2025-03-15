@@ -4,8 +4,8 @@ public abstract class AbstractRoom
 {
     public enum Grid { FLOOR, WALL, EMPTY}
 
-    public Vector2Int roomPos;
-    public Vector2Int roomDir;
+    public Vector2 roomPos;
+    public Vector2 roomDir;
 
     protected int floorCount;
 
