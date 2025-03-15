@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public abstract class AbstractWalkerRoom : AbstractRoom
 {
-    protected int maxWalkers;
+    protected int maxWalkers = 10;
 
-    protected float fillPercent;
+    protected float fillPercent = .4f;
 
     protected List<Walker> walkerList;
 
