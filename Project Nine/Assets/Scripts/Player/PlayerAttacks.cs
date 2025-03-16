@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update() //receives the attack input and limits speed of attacks based on attack rate
         {
-            if (Input.GetButtonDown("Fire1" && Time.time >= timeOfNextAttack))  // When pressing left mouse or Ctrl
+            if (Input.GetButtonDown("Fire1") && Time.time >= timeOfNextAttack)  // When pressing left mouse or Ctrl
             {
                 Attack();
                 timeOfNextAttack = Time.time + 1f / attackRate;  // Controls the attack speed
