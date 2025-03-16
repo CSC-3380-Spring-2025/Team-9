@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)//processes damage taken to health
     {
+        if (isDead) return;
         currentHealthPoints = Mathf.Max(currentHealthPoints - damage, 0); // Prevent negative health
         if (currentHealthPoints <= 0)//calls "Die" method to kill the unit
         {
@@ -22,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void HealDamage(int heal)//processes healing received to health
     {
+        if (isDead) return;
         currentHealthPoints = Mathf.Min(currentHealthPoints + heal, healthPoints);//heals and ensures no overheal
     }
 
