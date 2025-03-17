@@ -74,6 +74,7 @@ public abstract class AbstractWalkerRoom : AbstractRoom
             }
         }
     }
+
     protected abstract void RemoveWalker();
     protected abstract void ChangeDirection();
     protected abstract void DuplicateWalker();
