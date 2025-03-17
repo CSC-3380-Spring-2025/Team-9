@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class WalkerRoom1x1 : AbstractWalkerRoom, IConnection<AbstractWalkerRoom>
+public class WalkerRoom1x1 : AbstractWalkerRoom
 {
-
     public WalkerRoom1x1()
     {
         InitializeRoom();
@@ -78,44 +77,5 @@ public class WalkerRoom1x1 : AbstractWalkerRoom, IConnection<AbstractWalkerRoom>
             foundWalker.Position.y = Mathf.Clamp(foundWalker.Position.y, 1, roomGrid.GetLength(1) - 2);
             walkerList[i] = foundWalker;
         }
-    }
-
-    public Vector2 CheckConnectionDirection(AbstractWalkerRoom roomTarget)
-    {
-        return Vector2.zero;
-    }
-
-    public void HallAlignmentUp(AbstractWalkerRoom roomTarget)
-    {
-
-    }
-    public void HallAlignmentDown(AbstractWalkerRoom roomTarget)
-    {
-
-    }
-    public void HallAlignmentLeft(AbstractWalkerRoom roomTarget)
-    {
-
-    }
-    public void HallAlignmentRight(AbstractWalkerRoom roomTarget)
-    {
-
-    }
-
-    public void GenerateHallTopToBottom(AbstractWalkerRoom roomTarget)
-    {
-
-    }
-    public void GenerateHallBottomToTop(AbstractWalkerRoom roomTarget)
-    {
-
-    }
-    public void GenerateHallLeftToRight(AbstractWalkerRoom roomTarget)
-    {
-
-    }
-    public void GenerateHallRightToLeft(AbstractWalkerRoom roomTarget)
-    {
-
     }
 }
