@@ -4,18 +4,18 @@ using UnityEngine;
 [CustomEditor(typeof(LevelGenerator), true)]
 public class LevelGeneratorEditor : Editor
 {
-    LevelGenerator generator;
+    LevelGenerator levelGenerator;
 
     private void Awake()
     {
-        generator = (LevelGenerator)target;
+        levelGenerator = (LevelGenerator)target;
     }
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
         if(GUILayout.Button("Create Dungeon"))
         {
-            generator.PlaceTiles();
+            levelGenerator.PlaceTiles();
         }
     }
 }
