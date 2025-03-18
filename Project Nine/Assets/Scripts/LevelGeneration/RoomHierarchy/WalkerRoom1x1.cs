@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class WalkerRoom1x1 : AbstractWalkerRoom
 {
-
     public WalkerRoom1x1()
     {
         InitializeRoom();
