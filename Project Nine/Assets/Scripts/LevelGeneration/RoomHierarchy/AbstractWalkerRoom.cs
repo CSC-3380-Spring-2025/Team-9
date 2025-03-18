@@ -13,6 +13,7 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
 
     protected override void InitializeRoom()
     {
+        walkerList = new List<Walker>();
         for (int i = 0; i < roomGrid.GetLength(0); i++)
         {
             for (int j = 0; j < roomGrid.GetLength(1); j++)
