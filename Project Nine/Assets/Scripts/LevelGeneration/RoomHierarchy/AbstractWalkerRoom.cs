@@ -80,12 +80,7 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
     protected abstract void DuplicateWalker();
     protected abstract void UpdateWalkerPosition();
 
-    public Vector2 CheckConnectionDirection(AbstractWalkerRoom roomTarget)
-    {
-        return Vector2.zero;
-    }
-
-    public Vector2 HallAlignmentUp(AbstractWalkerRoom roomTarget)
+    public Vector2Int HallAlignmentUp(AbstractWalkerRoom roomTarget)
     {
         for (int y = roomGrid.GetLength(0) - 1; y >= 0; y--)
         {
@@ -97,15 +92,15 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
                     {
                         if (roomTarget.roomGrid[x,y2] == Grid.FLOOR)
                         {
-                            return new Vector2(x, y);
+                            return new Vector2Int(x, y);
                         }
                     }
                 }
             }
         }
-        return Vector2.zero;
+        return Vector2Int.zero;
     }
-    public Vector2 HallAlignmentDown(AbstractWalkerRoom roomTarget)
+    public Vector2Int HallAlignmentDown(AbstractWalkerRoom roomTarget)
     {
         for (int y = 0; y < roomGrid.GetLength(0); y++)
         {
@@ -117,15 +112,15 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
                     {
                         if (roomGrid[x, y2] == Grid.FLOOR)
                         {
-                            return new Vector2(x, y);
+                            return new Vector2Int(x, y);
                         }
                     }
                 }
             }
         }
-        return Vector2.zero;
+        return Vector2Int.zero;
     }
-    public Vector2 HallAlignmentLeft(AbstractWalkerRoom roomTarget)
+    public Vector2Int HallAlignmentLeft(AbstractWalkerRoom roomTarget)
     {
         for (int x = 0; x < roomGrid.GetLength(1); x++)
         {
@@ -137,15 +132,15 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
                     {
                         if (roomTarget.roomGrid[x2, y] == Grid.FLOOR)
                         {
-                            return new Vector2(x, y);
+                            return new Vector2Int(x, y);
                         }
                     }
                 }
             }
         }
-        return Vector2.zero;
+        return Vector2Int.zero;
     }
-    public Vector2 HallAlignmentRight(AbstractWalkerRoom roomTarget)
+    public Vector2Int HallAlignmentRight(AbstractWalkerRoom roomTarget)
     {
         for (int x = roomGrid.GetLength(1) -1; x >= 0; x--)
         {
@@ -155,28 +150,103 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
                 {
                     for (int x2 = 0; x2 < roomTarget.roomGrid.GetLength(1); x2++)
                     {
-                        if (roomTarget.roomGrid[x2, y] == Grid.FLOOR) {return new Vector2(x,y);}
+                        if (roomTarget.roomGrid[x2, y] == Grid.FLOOR) {return new Vector2Int(x,y);}
                     }
                 }
             }
         }
-        return Vector2.zero;
+        return Vector2Int.zero;
     }
     
     public void GenerateHallTopToBottom(AbstractWalkerRoom roomTarget)
     {
+        Vector2Int tileVector1 = HallAlignmentUp(roomTarget);
+        for (int y = tileVector1.y; y < roomGrid.GetLength(0); y++)
+        {
+            roomGrid[tileVector1.x, y] = Grid.FLOOR;
+
+            if (roomGrid[tileVector1.x + 1, y] != Grid.FLOOR) {roomGrid[tileVector1.x + 1, y] = Grid.WALL; }
+            if (roomGrid[tileVector1.x - 1, y] != Grid.FLOOR) { roomGrid[tileVector1.x - 1, y] = Grid.WALL; }
+        }
+
+        Vector2Int tileVector2 = new Vector2Int(tileVector1.x, 0);
+        while (roomTarget.roomGrid[tileVector2.x, tileVector2.y] != Grid.FLOOR)
+        {
+            roomTarget.roomGrid[tileVector2.x, tileVector2.y] = Grid.FLOOR;
+
+            if (roomTarget.roomGrid[tileVector2.x + 1, tileVector2.y] != Grid.FLOOR) { roomTarget.roomGrid[tileVector2.x + 1, tileVector2.y] = Grid.WALL; }
+            if (roomTarget.roomGrid[tileVector2.x - 1, tileVector2.y] != Grid.FLOOR) { roomTarget.roomGrid[tileVector2.x - 1, tileVector2.y] = Grid.WALL; }
+            tileVector2 = tileVector2 + Vector2Int.up;
+        }
 
     }
     public void GenerateHallBottomToTop(AbstractWalkerRoom roomTarget)
     {
+        Vector2Int tileVector1 = HallAlignmentDown(roomTarget);
+        for (int y = tileVector1.y; y >= 0; y--)
+        {
+            roomGrid[tileVector1.x, y] = Grid.FLOOR;
 
+            if (roomGrid[tileVector1.x + 1, y] != Grid.FLOOR) { roomGrid[tileVector1.x + 1, y] = Grid.WALL; }
+            if (roomGrid[tileVector1.x - 1, y] != Grid.FLOOR) { roomGrid[tileVector1.x - 1, y] = Grid.WALL; }
+        }
+        Vector2Int tileVector2 = new Vector2Int(tileVector1.x, 31);
+
+        while (roomTarget.roomGrid[tileVector2.x, tileVector2.y] != Grid.FLOOR)
+        {
+            roomTarget.roomGrid[tileVector2.x, tileVector2.y] = Grid.FLOOR;
+
+            if (roomTarget.roomGrid[tileVector2.x + 1, tileVector2.y] != Grid.FLOOR) { roomTarget.roomGrid[tileVector2.x + 1, tileVector2.y] = Grid.WALL; }
+            if (roomTarget.roomGrid[tileVector2.x - 1, tileVector2.y] != Grid.FLOOR) { roomTarget.roomGrid[tileVector2.x - 1, tileVector2.y] = Grid.WALL; }
+
+            tileVector2 = tileVector2 + Vector2Int.down;
+        }
     }
     public void GenerateHallLeftToRight(AbstractWalkerRoom roomTarget)
     {
+        Vector2Int tileVector1 = HallAlignmentLeft(roomTarget);
 
+        
+        for (int x = tileVector1.x; x >= 0; x--)
+        {
+            roomGrid[x, tileVector1.y] = Grid.FLOOR;
+            
+            if (roomGrid[x, tileVector1.y + 1] != Grid.FLOOR) { roomGrid[x, tileVector1.y + 1] = Grid.WALL; }
+            if (roomGrid[x, tileVector1.y - 1] != Grid.FLOOR) { roomGrid[x, tileVector1.y - 1] = Grid.WALL; }
+        }
+
+        Vector2Int tileVector2 = new Vector2Int(31, tileVector1.y);
+        while (roomTarget.roomGrid[tileVector2.x, tileVector2.y] != Grid.FLOOR)
+        {
+
+            roomTarget.roomGrid[tileVector2.x, tileVector2.y] = Grid.FLOOR;
+
+            
+            if (roomTarget.roomGrid[tileVector2.x, tileVector2.y + 1] != Grid.FLOOR) { roomTarget.roomGrid[tileVector2.x, tileVector2.y + 1] = Grid.WALL; }
+            if (roomTarget.roomGrid[tileVector2.x, tileVector2.y - 1] != Grid.FLOOR) { roomTarget.roomGrid[tileVector2.x, tileVector2.y - 1] = Grid.WALL; }
+            tileVector2 = tileVector2 + Vector2Int.left;
+        }
     }
     public void GenerateHallRightToLeft(AbstractWalkerRoom roomTarget)
     {
+        Vector2Int tileVector1 = HallAlignmentRight(roomTarget);
 
+        for (int x = tileVector1.x; x < roomGrid.GetLength(0); x++)
+        {
+            roomGrid[x, tileVector1.y] = Grid.FLOOR;
+
+            if (roomGrid[x, tileVector1.y + 1] != Grid.FLOOR) { roomGrid[x, tileVector1.y + 1] = Grid.WALL; }
+            if (roomGrid[x, tileVector1.y - 1] != Grid.FLOOR) { roomGrid[x, tileVector1.y - 1] = Grid.WALL; }
+        }
+        Vector2Int tileVector2 = new Vector2Int(0, tileVector1.y);
+
+        while (roomTarget.roomGrid[tileVector2.x, tileVector2.y] != Grid.FLOOR)
+        {
+            roomTarget.roomGrid[tileVector2.x, tileVector2.y] = Grid.FLOOR;
+
+            if (roomTarget.roomGrid[tileVector2.x, tileVector2.y + 1] != Grid.FLOOR) { roomTarget.roomGrid[tileVector2.x, tileVector2.y + 1] = Grid.WALL; }
+            if (roomTarget.roomGrid[tileVector2.x, tileVector2.y - 1] != Grid.FLOOR) { roomTarget.roomGrid[tileVector2.x, tileVector2.y - 1] = Grid.WALL; }
+            tileVector2 = tileVector2 + Vector2Int.right;
+        }
     }
 }
