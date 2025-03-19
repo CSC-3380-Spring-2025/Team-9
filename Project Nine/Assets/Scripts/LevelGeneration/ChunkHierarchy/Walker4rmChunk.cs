@@ -19,4 +19,11 @@ public class Walker4rmChunk : Abstract4rmChunk
         roomList.Add(body2);
         roomList.Add(tail);
     }
+    public override void ScaleRoomPositions()
+    {
+        foreach (AbstractRoom room in roomList)
+        {
+            room.roomPos = room.roomPos * 32;
+        }
+    }
 }

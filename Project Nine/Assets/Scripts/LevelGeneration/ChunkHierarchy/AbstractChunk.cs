@@ -29,4 +29,6 @@ public abstract class AbstractChunk
             default: return Vector2.zero;
         }
     }
+
+    public abstract void ScaleRoomPositions();
 }

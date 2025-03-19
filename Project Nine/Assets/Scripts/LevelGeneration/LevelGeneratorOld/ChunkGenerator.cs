@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class RoomGenerator : MonoBehaviour
+public class ChunkGenerator : MonoBehaviour
 {
     public Tilemap tilemap;
 
@@ -11,11 +11,20 @@ public class RoomGenerator : MonoBehaviour
     public int tileCount = default;
     public void PlaceTiles()
     {
+        Walker4rmChunk chunk = new Walker4rmChunk();
+
         tilemap.ClearAllTiles();
         tileCount = default;
 
-        WalkerRoom1x1 room = new WalkerRoom1x1();
+        chunk.ScaleRoomPositions();
 
+        foreach(AbstractWalkerRoom room in chunk.roomList)
+        {
+            PlaceRoomTiles(room);
+        }
+    }
+    private void PlaceRoomTiles(AbstractWalkerRoom room)
+    {
         Vector3Int initialTilePlacer = new Vector3Int((int)room.roomPos.x, (int)room.roomPos.y, 0);
 
         for (int i = 0; i < room.roomGrid.GetLength(0); i++)
