@@ -5,18 +5,8 @@ public abstract class AbstractChunk
     public Vector2 chunkPosition = Vector2.zero;
     public Vector2 ChunkDirection = Vector2.zero;
 
-    public List<AbstractRoom> roomList = new List<AbstractRoom>();
-
-    protected abstract void SetChunkList();
-
-    protected void MoveChunk(Vector2Int dir)
-    {
-        foreach (AbstractRoom room in roomList)
-        {
-            room.roomPos = room.roomPos + dir;
-        }
-        chunkPosition = chunkPosition + dir;
-    }
+    protected abstract void MoveChunk(Vector2Int dir);
+    public abstract void ScaleRoomPositions();
     protected static Vector2 GetDirection()
     {
         int index = (Mathf.FloorToInt(UnityEngine.Random.value * 3.99f));
@@ -29,6 +19,4 @@ public abstract class AbstractChunk
             default: return Vector2.zero;
         }
     }
-
-    public abstract void ScaleRoomPositions();
 }

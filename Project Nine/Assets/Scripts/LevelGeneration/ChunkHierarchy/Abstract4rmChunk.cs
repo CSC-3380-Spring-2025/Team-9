@@ -1,11 +1,14 @@
- using UnityEngine;
-
+using UnityEngine;
+using System.Collections.Generic;
 public abstract class Abstract4rmChunk : AbstractChunk
 {
     public AbstractRoom head;
     public AbstractRoom tail;
     public AbstractRoom body1;
     public AbstractRoom body2;
+
+    public List<AbstractRoom> roomList;
+    protected abstract void SetChunkList();
     protected void SetRoomPositions()
     {
         for (int i = 1; i < roomList.Count; i++)
@@ -22,5 +25,13 @@ public abstract class Abstract4rmChunk : AbstractChunk
             }
             roomList[i].roomPos = roomList[i].roomPos + roomList[i].roomDir;
         }
+    }
+    protected override void MoveChunk(Vector2Int dir)
+    {
+        foreach (AbstractRoom room in roomList)
+        {
+            room.roomPos = room.roomPos + dir;
+        }
+        chunkPosition = chunkPosition + dir;
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Walker4rmChunk : Abstract4rmChunk
@@ -9,6 +10,7 @@ public class Walker4rmChunk : Abstract4rmChunk
     }
     protected override void SetChunkList()
     {
+        roomList = new List<AbstractRoom>();
         head = new WalkerRoom1x1();
         body1 = new WalkerRoom1x1();
         body2 = new WalkerRoom1x1();
