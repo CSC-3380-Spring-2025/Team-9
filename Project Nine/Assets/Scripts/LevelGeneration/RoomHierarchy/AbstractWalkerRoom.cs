@@ -89,9 +89,9 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
             {
                 if (roomGrid[x,y] == Grid.FLOOR)
                 {
-                    for (int y2 = 0; y2 < roomTarget.roomGrid.GetLength(0); x++)
+                    for (int y2 = 0; y2 < roomTarget.roomGrid.GetLength(0); y2++)
                     {
-                        if (roomTarget.roomGrid[x,y2] == Grid.FLOOR)
+                        if (roomTarget.roomGrid[x ,y2] == Grid.FLOOR)
                         {
                             return new Vector2Int(x, y);
                         }
@@ -111,7 +111,7 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
                 {
                     for (int y2 = 0; y2 < roomTarget.roomGrid.GetLength(0); y2++)
                     {
-                        if (roomGrid[x, y2] == Grid.FLOOR)
+                        if (roomTarget.roomGrid[x, y2] == Grid.FLOOR)
                         {
                             return new Vector2Int(x, y);
                         }
