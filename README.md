@@ -17,7 +17,7 @@ Top down roguelike game, with random level generation and pixel art style.
 - Linux
 - Windows
 # Important Links
-Kanban Board: [link]\
+Kanban Board: [link]\https://thebestestgroup.atlassian.net/jira/software/projects/C3G/boards/3
 Designs: [link]\
 Styles Guide(s): [link]
 
