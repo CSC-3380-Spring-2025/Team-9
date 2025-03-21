@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float RollDuration = 0.5f;
     public Rigidbody2D Rb;
     public LayerMask WallLayer;
+    public Inventory inventory;
 
 
     private Vector2 _movement;
@@ -103,6 +104,15 @@ public class PlayerMovement : MonoBehaviour
         // checks if the player is touching a wall by raycasting
         RaycastHit2D hit = Physics2D.Raycast(startPosition, direction, checkDistance, WallLayer);
         return hit.collider != null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ItemPickup itemPickup = collision.GetComponent<ItemPickup>();
+        if (itemPickup != null)
+        {
+            itemPickup.Pickup(inventory);
+        }
     }
 
 
