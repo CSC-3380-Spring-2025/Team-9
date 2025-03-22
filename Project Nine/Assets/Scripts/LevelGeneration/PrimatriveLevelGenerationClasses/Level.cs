@@ -52,7 +52,7 @@ public class Level
      * This Method is responsable for the scaling of all positions of rooms and chunks by *32
      * (this must happen because the tileset references these scaled positions to place on a cohesive tilemap)
      */
-    void ScaleRoomPositions()
+    private void ScaleRoomPositions()
     {
         chunkList.Add(pivot);
         chunkList.Add(extra);
