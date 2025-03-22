@@ -9,6 +9,9 @@ public class ChunkGenerator : MonoBehaviour
     public Tile floor;
 
     public int tileCount = default;
+
+    public GameObject playerPrefab;
+    private ChunkPlayerSpawn playerSpawn;
     public void PlaceTiles()
     {
         Walker4rmChunk chunk = new Walker4rmChunk();
@@ -22,6 +25,9 @@ public class ChunkGenerator : MonoBehaviour
         {
             PlaceRoomTiles(room);
         }
+
+        playerSpawn = new ChunkPlayerSpawn(chunk, playerPrefab);
+        playerSpawn.SetPlayerPosition();
     }
     private void PlaceRoomTiles(AbstractWalkerRoom room)
     {
