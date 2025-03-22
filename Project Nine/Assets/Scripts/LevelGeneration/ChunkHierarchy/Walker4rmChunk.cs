@@ -48,7 +48,7 @@ public class Walker4rmChunk : Abstract4rmChunk
             }
         }
     }
-    protected override void MoveChunk(Vector2Int dir)
+    public override void MoveChunk(Vector2 dir)
     {
         foreach (AbstractRoom room in roomList)
         {
@@ -80,6 +80,19 @@ public class Walker4rmChunk : Abstract4rmChunk
             roomList[i].roomPos = roomList[i].roomPos + roomList[i].roomDir;
         }
     }
-    
 
+    public bool CheckCollision(Walker4rmChunk chunk)
+    {
+        foreach (WalkerRoom1x1 roomInstance in this.roomList)
+        {
+            foreach (WalkerRoom1x1 roomComparison in chunk.roomList)
+            {
+                if (roomInstance.roomPos.Equals(roomComparison.roomPos))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

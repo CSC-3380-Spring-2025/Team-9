@@ -3,11 +3,11 @@ using UnityEngine;
 public abstract class AbstractChunk
 {
     public Vector2 chunkPosition = Vector2.zero;
-    public Vector2 ChunkDirection = Vector2.zero;
+    public Vector2 chunkDirection = Vector2.zero;
 
-    protected abstract void MoveChunk(Vector2Int dir);
+    public abstract void MoveChunk(Vector2 dir);
     public abstract void ScaleRoomPositions();
-    protected static Vector2 GetDirection()
+    public static Vector2 GetDirection()
     {
         int index = (Mathf.FloorToInt(UnityEngine.Random.value * 3.99f));
         switch (index)
