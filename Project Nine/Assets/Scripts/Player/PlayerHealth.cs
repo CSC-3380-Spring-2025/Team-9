@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -11,13 +12,25 @@ public class PlayerHealth : MonoBehaviour
         currentHealthPoints = healthPoints;
     }
 
-    public void TakeDamage(int damage)//processes damage taken to health
+    public void TakeDamage(DamageData damage)//processes damage taken to health
     {
-        currentHealthPoints = Mathf.Max(currentHealthPoints - damage, 0); //Prevent negative health
+        int calculatedDamage = CalculateDamage(damage);
+        currentHealthPoints = Mathf.Max(currentHealthPoints - calculatedDamage, 0); //Prevent negative health
         if (currentHealthPoints <= 0)//calls "Die" method to kill the player
         {
             Die();
         }
+    }
+    private int CalculateDamage(DamageData damage)
+    {
+        int result = damage.baseDamage;
+
+        if (damage.isCritical)
+        {
+            result = (int)(result * 1.5);
+        }
+
+        return result;
     }
 
     public void HealDamage(int heal)//processes healing received to health

@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class EnemyAttacks : MonoBehaviour
@@ -8,6 +9,9 @@ public class EnemyAttacks : MonoBehaviour
     public int enemyAttackDamage = 10;
     private float timeOfNextEnemyAttack = 0f;
     public float enemyAttackRate = 0.5f; //rate is halved compared to player attacks to give players more sense of fairness, could change
+
+    public DamageType damageType = DamageType.Normal; 
+    [Range(0, 100)] public int criticalChance = 10; // Sets up Critical Chances (change number to change odds)
 
     void Update() //receives the attack input and limits speed of attacks based on attack rate
         {
@@ -27,7 +31,13 @@ public class EnemyAttacks : MonoBehaviour
         //damages the player when detected
         foreach (Collider2D player in hitPlayers)
         {
-            player.GetComponent<PlayerHealth>().TakeDamage(enemyAttackDamage);
+            player.GetComponent<PlayerHealth>().TakeDamage( // Sends damage package to player
+                new DamageData(
+                    enemyAttackDamage, // This is base damage of the enemy
+                    damageType, // This can be Normal, Fire, Poison, etc...
+                    Random.Range(0, 100) < criticalChance // Critical Chance boolean
+                )
+            );
         }
     } 
 
