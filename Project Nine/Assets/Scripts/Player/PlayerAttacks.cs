@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttacks : MonoBehaviour
 {
     public Transform attackPoint; 
     public float attackRange = 0.5f; //the range of attacks is 0.5 units
