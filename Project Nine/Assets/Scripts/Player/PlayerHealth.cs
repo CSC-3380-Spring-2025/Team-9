@@ -47,4 +47,6 @@ public class PlayerHealth : MonoBehaviour
         //Game over screen implemented, items lost, etc.
         Destroy(gameObject);
     }
+
+
 }
