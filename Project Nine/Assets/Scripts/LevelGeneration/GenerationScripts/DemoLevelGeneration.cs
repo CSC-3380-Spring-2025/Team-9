@@ -4,17 +4,21 @@ using UnityEngine.Tilemaps;
 public class DemoLevelGeneration : MonoBehaviour
 {
 
-    public Tilemap tilemap;
+    public Tilemap floorTilemap;
+    public Tilemap wallTilemap;
     public Tile wall;
     public Tile floor;
 
     public int tileCount = default;
 
+    private TilemapCollider2D WallTilemapCollider;
+
     public void PlaceTiles()
     {
         Walker1x1ChunkLevel level = new Walker1x1ChunkLevel();
 
-        tilemap.ClearAllTiles();
+        floorTilemap.ClearAllTiles();
+        wallTilemap.ClearAllTiles();
         tileCount = default;
 
         foreach (Walker4rmChunk chunk in level.chunkList)
@@ -37,12 +41,12 @@ public class DemoLevelGeneration : MonoBehaviour
 
                 if (room.roomGrid[i, j] == AbstractRoom.Grid.FLOOR)
                 {
-                    tilemap.SetTile(tilePlacer, floor);
+                    floorTilemap.SetTile(tilePlacer, floor);
                     tileCount++;
                 }
                 if (room.roomGrid[i, j] == AbstractRoom.Grid.WALL)
                 {
-                    tilemap.SetTile(tilePlacer, wall);
+                    wallTilemap.SetTile(tilePlacer, wall);
                 }
             }
         }
