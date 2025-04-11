@@ -47,9 +47,10 @@ public class PlayerMovement : MonoBehaviour
         _movement.x = Input.GetAxisRaw("Horizontal"); // gets the horizontal input
         _movement.y = Input.GetAxisRaw("Vertical"); // gets the vertical input
         
-
-        if (_movement.magnitude > 1) // for when the player goes top left, top right, bottom left, bottom right at the same time
+        Vector2 wallPosition = Rb.position + _lastMoveDirection.normalized; 
+        if (_movement.magnitude > 1 && !IsTouchingWall(Rb.position, wallPosition)) // for when the player goes top left, top right, bottom left, bottom right at the same time
         {
+            // the vector is not normalized when touching a wall, thus allowing for 'frictionless' movement.
             _movement = _movement.normalized; 
         }
     }
