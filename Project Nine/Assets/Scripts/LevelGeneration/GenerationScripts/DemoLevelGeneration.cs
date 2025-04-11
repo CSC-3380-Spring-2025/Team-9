@@ -10,6 +10,9 @@ public class DemoLevelGeneration : MonoBehaviour
 
     public int tileCount = default;
 
+    public GameObject playerPrefab;
+    private LevelPlayerSpawn playerSpawn;
+
     public void PlaceTiles()
     {
         Walker1x1ChunkLevel level = new Walker1x1ChunkLevel();
@@ -24,6 +27,8 @@ public class DemoLevelGeneration : MonoBehaviour
                 CycleRoom(room);
             }
         }
+        playerSpawn = new LevelPlayerSpawn(level, playerPrefab);
+        playerSpawn.SetPlayerPosition();
     }
     private void CycleRoom(WalkerRoom1x1 room)
     {
