@@ -5,7 +5,6 @@ using UnityEngine;
 public class ChunkGeneratorEditor : Editor
 {
     ChunkGenerator chunkGenerator;
-    ChunkPlayerSpawn playerSpawn;
 
     private void Awake()
     {
