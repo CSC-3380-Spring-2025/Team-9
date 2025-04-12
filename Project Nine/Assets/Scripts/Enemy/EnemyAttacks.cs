@@ -1,6 +1,6 @@
 using NUnit.Framework.Constraints;
 using UnityEngine;
-
+// shouldn't be needed anymore but leaving here for now in case we need to go back
 public class EnemyAttacks : MonoBehaviour
 {
     public Transform enemyAttackPoint;

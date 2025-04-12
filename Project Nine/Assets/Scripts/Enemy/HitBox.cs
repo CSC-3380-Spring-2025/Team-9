@@ -12,7 +12,7 @@ public class HitBox : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         IDamageable<DamageData> playerHealth = collision.GetComponent<IDamageable<DamageData>>();
-        if (playerHealth != null)
+        if (playerHealth != null) 
         {
             playerHealth.TakeDamage(
                 new DamageData(
