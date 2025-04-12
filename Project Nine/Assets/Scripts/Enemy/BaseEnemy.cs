@@ -1,9 +1,8 @@
-using NUnit.Framework.Constraints;
 using UnityEngine;
-// shouldn't be needed anymore but leaving here for now in case we need to go back
-public class EnemyAttacks : MonoBehaviour
+
+public class BaseEnemy : MonoBehaviour
 {
-    public Transform enemyAttackPoint;
+  public Transform enemyAttackPoint;
     public float enemyAttackRange = 0.5f;
     public LayerMask playerLayers;
     public int enemyAttackDamage = 10;
@@ -13,13 +12,16 @@ public class EnemyAttacks : MonoBehaviour
     public DamageType damageType = DamageType.Normal; 
     [Range(0, 100)] public int criticalChance = 10; // Sets up Critical Chances (change number to change odds)
 
+    // movement 
+    public float speed;
+
     void Update() //receives the attack input and limits speed of attacks based on attack rate
         {
-            if (Input.GetButtonDown("Fire1") && Time.time >= timeOfNextEnemyAttack)  // When pressing left mouse or Ctrl
-            {
-                Attack();
-                timeOfNextEnemyAttack = Time.time + 1f / enemyAttackRate;  // Controls the attack speed
-            }
+            // if (Input.GetButtonDown("Fire1") && Time.time >= timeOfNextEnemyAttack)  // When pressing left mouse or Ctrl
+            // {
+            //     Attack();
+            //     timeOfNextEnemyAttack = Time.time + 1f / enemyAttackRate;  // Controls the attack speed
+            // }
         }
 
     void Attack() //the method that acts out the attack and it's functions

@@ -1,6 +1,6 @@
 using UnityEngine;
-// shouldn't be needed anymore but leaving here for now in case we need to go back
-public class EnemyHealth : MonoBehaviour
+
+public class MortalEnemy : BaseEnemy, IDamageable<int>
 {
     public int healthPoints = 100;//max health that you start with
     public int currentHealthPoints;//variable health from damage and healing
@@ -19,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
         {
             Die();
         }
+        
     }
 
     public void HealDamage(int heal)//processes healing received to health
@@ -35,5 +36,4 @@ public class EnemyHealth : MonoBehaviour
         //before destroying, cease all animations, activity, etc.
         Destroy(gameObject);
     }
-
 }

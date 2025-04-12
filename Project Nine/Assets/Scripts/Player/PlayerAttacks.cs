@@ -21,14 +21,19 @@ public class PlayerAttacks : MonoBehaviour
 
     void Attack() //the method that acts out the attack and it's functions
     {
-        
+        Debug.Log("Attack function of player activated");
         //detects if enemy is in range of attack, accounting for all variables
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         //damages all enemies detected
         foreach (Collider2D enemy in hitEnemies)
-        {
-            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+        {   
+            Debug.Log(" hit found");
+            MortalEnemy isMortal = enemy.GetComponent<MortalEnemy>();
+            if (isMortal != null) // checks if it is a mortal enemy that can be dealt damage
+            {
+                isMortal.TakeDamage(attackDamage);
+            }
         }
 
         //will include a player attack animation here soon
