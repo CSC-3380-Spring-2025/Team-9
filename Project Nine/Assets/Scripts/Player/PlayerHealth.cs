@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IDamageable<DamageData>
 {
     public int healthPoints = 100;//max health that you start with
     public int currentHealthPoints;//variable health from damage and healing
@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-    void Die()
+    public void Die()
     {
         if (isDead) return;
         isDead = true;
