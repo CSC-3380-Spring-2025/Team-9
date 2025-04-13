@@ -4,7 +4,7 @@ public class MortalEnemy : BaseEnemy, IDamageable<int>
 {
     public int healthPoints = 100;//max health that you start with
     public int currentHealthPoints;//variable health from damage and healing
-    private bool isDead = false;
+    protected bool isDead = false;
 
     void Start()
     {
@@ -29,8 +29,10 @@ public class MortalEnemy : BaseEnemy, IDamageable<int>
     }
 
 
-    void Die()
+    virtual public void Die()
     {
+        Debug.Log("using inhertied Die function from mortal Enemy class");
+
         if (isDead) return;
         isDead = true;
         //before destroying, cease all animations, activity, etc.
