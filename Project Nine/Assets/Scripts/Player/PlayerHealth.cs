@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour, IDamageable<DamageData>
 {
@@ -46,6 +47,10 @@ public class PlayerHealth : MonoBehaviour, IDamageable<DamageData>
         //before destroying, cease all animations, activity, etc.
         //Game over screen implemented, items lost, etc.
         Destroy(gameObject);
+
+        SceneManager.LoadScene("ResetMenuScene");
+
+
     }
 
 
