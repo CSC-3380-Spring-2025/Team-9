@@ -11,6 +11,8 @@ public class DemoLevelGeneration : MonoBehaviour
 
     public int tileCount = default;
 
+    public GameObject playerPrefab;
+    private LevelPlayerSpawn playerSpawn;
     public void PlaceTiles()
     {
         Walker1x1ChunkLevel level = new Walker1x1ChunkLevel();
