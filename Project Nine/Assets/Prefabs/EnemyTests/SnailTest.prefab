@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2258552211256025270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: snailAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,8 @@ GameObject:
   - component: {fileID: 1317005663060844679}
   - component: {fileID: 5525336366746903380}
   - component: {fileID: 653423157849152027}
-  m_Layer: 0
+  - component: {fileID: -1842772374405700471}
+  m_Layer: 8
   m_Name: SnailTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,3 +143,39 @@ MonoBehaviour:
   damageType: 0
   criticalChance: 10
   speed: 0
+--- !u!58 &-1842772374405700471
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355051335088246799}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.005299568, y: 0}
+  m_Radius: 0.43640232
