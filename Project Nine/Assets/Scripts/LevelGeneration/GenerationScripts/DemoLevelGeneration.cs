@@ -1,8 +1,10 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class DemoLevelGeneration : MonoBehaviour
 {
+    Walker1x1ChunkLevel level;
 
     public Tilemap floorTilemap;
     public Tilemap wallTilemap;
@@ -11,11 +13,14 @@ public class DemoLevelGeneration : MonoBehaviour
 
     public int tileCount = default;
 
+    public GameObject doorPrefab;
+    private DoorSpawn DoorSpawn;
+
     public GameObject playerPrefab;
     private LevelPlayerSpawn playerSpawn;
     public void PlaceTiles()
     {
-        Walker1x1ChunkLevel level = new Walker1x1ChunkLevel();
+        level = new Walker1x1ChunkLevel();
 
         floorTilemap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
@@ -30,6 +35,9 @@ public class DemoLevelGeneration : MonoBehaviour
         }
         playerSpawn = new LevelPlayerSpawn(level, playerPrefab);
         playerSpawn.SetPlayerPosition();
+
+        DoorSpawn = new DoorSpawn(level, doorPrefab);
+        DoorSpawn.SetDoorPosition();
     }
     private void CycleRoom(WalkerRoom1x1 room)
     {

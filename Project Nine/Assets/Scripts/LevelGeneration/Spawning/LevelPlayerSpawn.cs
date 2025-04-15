@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class LevelPlayerSpawn
 {
-    public Walker1x1ChunkLevel demoLevel;
-    public Vector2 playerPosition;
+    private Walker1x1ChunkLevel demoLevel;
+    private Vector2 playerPosition;
     private GameObject playerInstance;
 
     public LevelPlayerSpawn(Walker1x1ChunkLevel dLevel, GameObject player)
