@@ -46,10 +46,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable<DamageData>
         isDead = true;
         //before destroying, cease all animations, activity, etc.
         //Game over screen implemented, items lost, etc.
+
         Destroy(gameObject);
-
         SceneManager.LoadScene("ResetMenuScene");
-
 
     }
 
