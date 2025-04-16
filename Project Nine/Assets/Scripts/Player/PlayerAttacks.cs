@@ -29,7 +29,7 @@ public class PlayerAttacks : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {   
             Debug.Log(" hit found");
-            MortalEnemy isMortal = enemy.GetComponent<MortalEnemy>();
+            var isMortal = enemy.GetComponent<IDamageable<int>>();
             if (isMortal != null) // checks if it is a mortal enemy that can be dealt damage
             {
                 isMortal.TakeDamage(attackDamage);
