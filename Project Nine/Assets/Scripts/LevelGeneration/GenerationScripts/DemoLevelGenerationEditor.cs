@@ -14,7 +14,7 @@ public class DemoLevelGenerationEditor : Editor
         base.OnInspectorGUI();
         if(GUILayout.Button("Create Dungeon"))
         {
-            demoGenerator.PlaceTiles();
+            demoGenerator.GenerateLevel();
         }
     }
 }

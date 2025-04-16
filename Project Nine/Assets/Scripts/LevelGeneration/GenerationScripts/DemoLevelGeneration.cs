@@ -13,12 +13,17 @@ public class DemoLevelGeneration : MonoBehaviour
 
     public int tileCount = default;
 
-    public GameObject doorPrefab;
-    private DoorSpawn DoorSpawn;
 
-    public GameObject playerPrefab;
+    [SerializeField] private GameObject doorPrefab;
+    private DoorSpawn doorSpawn;
+
+    [SerializeField] private GameObject playerPrefab;
     private LevelPlayerSpawn playerSpawn;
-    public void PlaceTiles()
+
+    [SerializeField] private GameObject snailPerfab;
+    private SnailSpawn snailSpawn;
+
+    public void GenerateLevel()
     {
         level = new Walker1x1ChunkLevel();
 
@@ -36,8 +41,11 @@ public class DemoLevelGeneration : MonoBehaviour
         playerSpawn = new LevelPlayerSpawn(level, playerPrefab);
         playerSpawn.SetPlayerPosition();
 
-        DoorSpawn = new DoorSpawn(level, doorPrefab);
-        DoorSpawn.SetDoorPosition();
+        doorSpawn = new DoorSpawn(level, doorPrefab);
+        doorSpawn.SetDoorPosition();
+
+        snailSpawn = new SnailSpawn(level, snailPerfab);
+        snailSpawn.SetSpawnLocation();
     }
     private void CycleRoom(WalkerRoom1x1 room)
     {
