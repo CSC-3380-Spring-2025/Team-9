@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Spider : MortalEnemy, IDamageable<int>
 {
-    private bool isBigSpider = true;
+   // private bool isBigSpider = true;
     public Transform[] childrenSpawnPoints; 
 
     public GameObject spiderPrefab;
