@@ -1,7 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System;
-using Unity.VisualScripting;
 
 public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWalkerRoom>
 {
@@ -85,9 +83,9 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
 
     public Vector2Int HallAlignmentUp(AbstractWalkerRoom roomTarget)
     {
-        for (int y = roomGrid.GetLength(0) - 1; y >= 0; y--)
+        for (int y = roomGrid.GetLength(0) - 2; y >= 0; y--) // originally -1. 
         {
-            for (int x = 0; x < roomGrid.GetLength(1); x++)
+            for (int x = 1; x < roomGrid.GetLength(1); x++) // orginally x = 0.
             {
                 if (roomGrid[x,y] == Grid.FLOOR)
                 {
@@ -105,13 +103,13 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
     }
     public Vector2Int HallAlignmentDown(AbstractWalkerRoom roomTarget)
     {
-        for (int y = 1; y < roomGrid.GetLength(0); y++)
+        for (int y = 1; y < roomGrid.GetLength(0); y++) // originally y = 0
         {
-            for (int x = 1; x < roomGrid.GetLength(1); x++)
+            for (int x = 1; x < roomGrid.GetLength(1); x++) // originally x = 0
             {
-                if (roomGrid[x, y] == Grid.FLOOR) // first time a Grid.FLOOR is found.
+                if (roomGrid[x, y] == Grid.FLOOR)
                 {
-                    for (int y2 = 1; y2 < roomTarget.roomGrid.GetLength(0); y2++) // changed from zero to 1
+                    for (int y2 = 0; y2 < roomTarget.roomGrid.GetLength(0); y2++)
                     {
                         if (roomTarget.roomGrid[x, y2] == Grid.FLOOR)
                         {
@@ -125,15 +123,15 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
     }
     public Vector2Int HallAlignmentLeft(AbstractWalkerRoom roomTarget)
     {
-        for (int x = 0; x < roomGrid.GetLength(1); x++)
+        for (int x = 1; x < roomGrid.GetLength(1); x++) // originally x = 0
         {
-            for (int y = 0; y < roomGrid.GetLength(0); y++)
+            for (int y = 1; y < roomGrid.GetLength(0); y++) // originally y = 0
             {
                 if (roomGrid[x, y] == Grid.FLOOR)
                 {
-                    for (int x2 = 0; x2 < roomTarget.roomGrid.GetLength(1); x2++)
+                    for (int x2 = 0; x2 < roomTarget.roomGrid.GetLength(1); x2++) // should i change this to start at 1 too?
                     {
-                        if (roomTarget.roomGrid[x2, y] == Grid.FLOOR)
+                        if (roomTarget.roomGrid[x2, y] == Grid.FLOOR) 
                         {
                             return new Vector2Int(x, y);
                         }
@@ -145,9 +143,9 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
     }
     public Vector2Int HallAlignmentRight(AbstractWalkerRoom roomTarget)
     {
-        for (int x = roomGrid.GetLength(1) -1; x >= 0; x--)
+        for (int x = roomGrid.GetLength(1) -2 ; x >= 0; x--) // originally -1
         {
-            for (int y = 0; y < roomGrid.GetLength(0); y++)
+            for (int y = 1; y < roomGrid.GetLength(0); y++) // originallly y = 0
             {
                 if (roomGrid[x, y] == Grid.FLOOR)
                 {
@@ -189,17 +187,9 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
         for (int y = tileVector1.y; y >= 0; y--)
         {
             roomGrid[tileVector1.x, y] = Grid.FLOOR;
-            ///////////////////////////////////////////////////////////////////////////////////////////////
-            try {
+
             if (roomGrid[tileVector1.x + 1, y] != Grid.FLOOR) { roomGrid[tileVector1.x + 1, y] = Grid.WALL; }
             if (roomGrid[tileVector1.x - 1, y] != Grid.FLOOR) { roomGrid[tileVector1.x - 1, y] = Grid.WALL; }
-            }
-            catch (Exception e)
-            {
-                Debug.Log(e);
-                Debug.Log("tileVector1.x is: " + tileVector1.x.ToString() + " And y is: " + y.ToString());
-                Debug.Log("tileVector1 is " + tileVector1.ToString());
-            }
         }
         Vector2Int tileVector2 = new Vector2Int(tileVector1.x, 31);
 
@@ -221,16 +211,9 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
         for (int x = tileVector1.x; x >= 0; x--)
         {
             roomGrid[x, tileVector1.y] = Grid.FLOOR;
-            try {
+            
             if (roomGrid[x, tileVector1.y + 1] != Grid.FLOOR) { roomGrid[x, tileVector1.y + 1] = Grid.WALL; }
             if (roomGrid[x, tileVector1.y - 1] != Grid.FLOOR) { roomGrid[x, tileVector1.y - 1] = Grid.WALL; }
-            }
-            catch (Exception e)
-            {
-                 Debug.Log("tileVector1.y is: " + tileVector1.y.ToString() + " And x is: " + x.ToString());
-                 Debug.Log("tileVector1 is " + tileVector1.ToString());
-                 throw e;
-            }
         }
 
         Vector2Int tileVector2 = new Vector2Int(31, tileVector1.y);
