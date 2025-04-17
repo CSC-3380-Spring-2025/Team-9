@@ -41,11 +41,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1317005663060844679}
   - component: {fileID: 5525336366746903380}
-  - component: {fileID: 653423157849152027}
   - component: {fileID: -1842772374405700471}
+  - component: {fileID: -6379672710224550814}
   m_Layer: 8
   m_Name: SnailTest
-  m_TagString: Untagged
+  m_TagString: Snail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 7355051335088246799}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.660194, y: -13.1406, z: 0}
+  m_LocalPosition: {x: -80, y: 48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -121,28 +121,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &653423157849152027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7355051335088246799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57d66e70e1767e740a34a52b0b965da3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyAttackPoint: {fileID: 2258552211256025270}
-  enemyAttackRange: 0.5
-  playerLayers:
-    serializedVersion: 2
-    m_Bits: 128
-  enemyAttackDamage: 10
-  enemyAttackRate: 0.5
-  damageType: 0
-  criticalChance: 10
-  speed: 0
 --- !u!58 &-1842772374405700471
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -179,3 +157,16 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.005299568, y: 0}
   m_Radius: 0.43640232
+--- !u!114 &-6379672710224550814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355051335088246799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484336f6239883341821749f57b2ac63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snailPrefab: {fileID: 0}
