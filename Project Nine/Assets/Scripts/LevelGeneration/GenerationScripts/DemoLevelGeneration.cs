@@ -1,10 +1,11 @@
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class DemoLevelGeneration : MonoBehaviour
 {
-    Walker1x1ChunkLevel level;
+    public Walker1x1ChunkLevel level;
 
     public Tilemap floorTilemap;
     public Tilemap wallTilemap;
@@ -13,15 +14,13 @@ public class DemoLevelGeneration : MonoBehaviour
 
     public int tileCount = default;
 
+    [SerializeField] private SnailSpawn snailSpawn;
 
     [SerializeField] private GameObject doorPrefab;
     private DoorSpawn doorSpawn;
 
     [SerializeField] private GameObject playerPrefab;
     private LevelPlayerSpawn playerSpawn;
-
-    [SerializeField] private GameObject snailPerfab;
-    private SnailSpawn snailSpawn;
 
     public void GenerateLevel()
     {
@@ -38,14 +37,9 @@ public class DemoLevelGeneration : MonoBehaviour
                 CycleRoom(room);
             }
         }
-        playerSpawn = new LevelPlayerSpawn(level, playerPrefab);
-        playerSpawn.SetPlayerPosition();
-
-        doorSpawn = new DoorSpawn(level, doorPrefab);
-        doorSpawn.SetDoorPosition();
-
-        snailSpawn = new SnailSpawn(level, snailPerfab);
-        snailSpawn.SetSpawnLocation();
+        PlayerSpawn();
+        DoorSpawn();
+        EnemySpawnAlgorithms();
     }
     private void CycleRoom(WalkerRoom1x1 room)
     {
@@ -68,5 +62,20 @@ public class DemoLevelGeneration : MonoBehaviour
                 }
             }
         }
+    }
+    private void PlayerSpawn()
+    {
+        playerSpawn = new LevelPlayerSpawn(level, playerPrefab);
+        playerSpawn.SetPlayerPosition();
+    }
+    private void DoorSpawn()
+    {
+        doorSpawn = new DoorSpawn(level, doorPrefab);
+        doorSpawn.SetDoorPosition();
+    }
+    private void EnemySpawnAlgorithms()
+    {
+        snailSpawn.DestroySnail();
+        snailSpawn.SetSpawnLocation(level);
     }
 }
