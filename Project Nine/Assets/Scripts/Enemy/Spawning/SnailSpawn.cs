@@ -21,10 +21,10 @@ public class SnailSpawn : MonoBehaviour
     }
     public void DestroySnail()
     {
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("Snail");
-        if(objects.Length > 0)
+        GameObject[] snail = GameObject.FindGameObjectsWithTag("Snail");
+        if(snail.Length > 0)
         {
-            foreach (GameObject obj in objects)
+            foreach (GameObject obj in snail)
             {
                 DestroyImmediate(obj);
             }
