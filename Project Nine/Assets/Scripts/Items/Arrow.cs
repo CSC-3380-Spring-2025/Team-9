@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    int dmg;
+    private int dmg;
 
     public void Init(int damage)
     {
