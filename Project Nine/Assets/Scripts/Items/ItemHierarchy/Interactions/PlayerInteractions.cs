@@ -12,18 +12,22 @@ public class PlayerInteractions : MonoBehaviour
         if (nearbyLantern != null && Input.GetKeyDown(KeyCode.E))
         {
             nearbyLantern.Interact();
+            Destroy(nearbyLantern);
         }
         if (nearbySword != null && Input.GetKeyDown(KeyCode.E))
         {
             nearbySword.Interact();
+            Destroy(nearbySword);
         }
         if (nearbyBow != null && Input.GetKeyDown(KeyCode.E))
         {
             nearbyBow.Interact();
+            Destroy(nearbyBow);
         }
         if (nearbyDoor != null && Input.GetKeyDown(KeyCode.E))
         {
             nearbyDoor.Interact();
+            Destroy(nearbyDoor);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

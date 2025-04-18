@@ -11,6 +11,8 @@ TagManager:
   - Snail
   - Bow
   - Sword
+  - Lantern
+  - Inventory
   layers:
   - Default
   - TransparentFX

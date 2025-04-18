@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class Lantern
+public class Lantern : WeaponItem
 {
-    
+    public override void Use()
+    {
+        
+    }
 }

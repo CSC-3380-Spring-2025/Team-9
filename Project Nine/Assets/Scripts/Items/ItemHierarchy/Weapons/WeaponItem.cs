@@ -1,6 +1,10 @@
+using TMPro;
 using UnityEngine;
 
-public class WeaponItem : Item
+public abstract class WeaponItem : Item
 {
-    
+    public int damage;
+    public float rateOfAttack;
+
+    public abstract void Use();
 }
