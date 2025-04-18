@@ -23,6 +23,7 @@ public class AugmentSelectionManager : MonoBehaviour
     public void ShowAugmentCards(PlayerController p) // Show the augment cards in the UI
     {
         player = p;
+        hasRerolled = false; // Reset reroll state
 
         // clear previusly shown cards
         foreach (Transform child in cardSpawnParent)
@@ -45,7 +46,7 @@ public class AugmentSelectionManager : MonoBehaviour
 
 
         // enable the reroll button
-        rerollButton.gameObject.SetActive(!hasRerolled); // Show the reroll button if not already rerolled
+       // rerollButton.gameObject.SetActive(!hasRerolled); // Show the reroll button if not already rerolled
 
         Debug.Log($"Spawning {currentOptions.Count} cards...");
     }
