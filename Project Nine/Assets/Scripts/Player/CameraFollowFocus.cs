@@ -7,6 +7,24 @@ public class CameraFollowFocus : MonoBehaviour
     public float MaxDistance = 2f;
 
 
+    void Start()
+    {
+        // find player so camara always follows when scene changes
+        if (Target == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                Target = player.transform;
+            }
+            else
+            {
+                Debug.LogError("Player not found!");
+            }
+        }
+    }
+
+
     void Update()
     {
         if (Target == null) return;

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Door
+  - Floor
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Enemy
   - EnemyWeapon
   - PlayerWeapon
-  - 
+  - Projectile
   - 
   - 
   - 
@@ -47,6 +49,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3101075321
+    locked: 0
+  - name: UI
+    uniqueID: 4021505583
     locked: 0
   m_RenderingLayers:
   - Default

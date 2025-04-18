@@ -19,5 +19,6 @@ public class AugmentCard : ScriptableObject
     public void ApplyEffect(PlayerHealth player)
     {
         player.healthPoints += healthBonus; // Apply the health bonus to the player
+        player.currentHealthPoints += healthBonus; // Update the current health points of the player
     }
 }
