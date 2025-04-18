@@ -15,6 +15,7 @@ public class DemoLevelGeneration : MonoBehaviour
     public int tileCount = default;
 
     [SerializeField] private SnailSpawn snailSpawn;
+    [SerializeField] private ImmortalSpawn immortalSpawn;
 
     [SerializeField] private GameObject doorPrefab;
     private DoorSpawn doorSpawn;
@@ -77,5 +78,8 @@ public class DemoLevelGeneration : MonoBehaviour
     {
         snailSpawn.DestroySnail();
         snailSpawn.SetSpawnLocation(level);
+
+        immortalSpawn.DestroyImmortals();
+        immortalSpawn.SetSpawnLocations(level);
     }
 }
