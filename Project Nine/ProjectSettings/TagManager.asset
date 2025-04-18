@@ -7,6 +7,9 @@ TagManager:
   - Door
   - Floor
   - Boss
+  - Immortal
+  - Snail
+  - Bow
   layers:
   - Default
   - TransparentFX

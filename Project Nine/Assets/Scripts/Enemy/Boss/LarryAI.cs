@@ -88,7 +88,7 @@ public class LarryAI : MonoBehaviour
             if (bossCol && boneCol) Physics2D.IgnoreCollision(boneCol, bossCol, true);
 
             Rigidbody2D rb = bone.GetComponent<Rigidbody2D>();
-            if (rb) rb.velocity = dir * boneSpeed;            
+            if (rb) rb.linearVelocity = dir * boneSpeed;            
         }
     }
 
