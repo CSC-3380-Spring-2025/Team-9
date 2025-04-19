@@ -18,7 +18,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
 
     // This function is called when the object becomes enabled and active
-    public void InitializeItem(Item newItem){
+    public void InitializeItem(Item newItem)
+    {
         item = newItem;
         image.sprite = newItem._image;
         RefreshCount();
