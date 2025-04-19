@@ -19,8 +19,8 @@ public class GridAdjuster : MonoBehaviour
         Vector3 toWorldSpaceMin = level.LocalToWorld(minimum); // lower left corner
         Vector3 toWorldSpaceMax = level.LocalToWorld(maximum); // upper right corner
 
-        Debug.Log("world coord for maximum : " + toWorldSpaceMax.ToString()); 
-        Debug.Log("world coord for minimum : " + toWorldSpaceMin.ToString());
+        //Debug.Log("world coord for maximum : " + toWorldSpaceMax.ToString()); 
+        //Debug.Log("world coord for minimum : " + toWorldSpaceMin.ToString());
 
         // get midpoints of x and y to get where i should center the graph
         float xMid = (toWorldSpaceMax.x + toWorldSpaceMin.x) / 2;
@@ -44,6 +44,8 @@ public class GridAdjuster : MonoBehaviour
         gg.SetDimensions(width, depth, nodeSize);
 
 // Recalculate the graph
+        //AstarPath.active.ScanAsync(); // if we do async then we would probably have to
+        // give enemies a timer before they start their A* behavior
         AstarPath.active.Scan();
         
     }
