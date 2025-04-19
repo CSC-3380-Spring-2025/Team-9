@@ -25,7 +25,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     }
 
     // This function refreshes the count of the item
-    public void RefreshCount(){
+    public void RefreshCount()
+    {
         countText.text = count.ToString();
     }
 

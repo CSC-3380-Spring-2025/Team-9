@@ -12,17 +12,17 @@ public class PlayerInteractions : MonoBehaviour
         if (nearbyLantern != null && Input.GetKeyDown(KeyCode.E))
         {
             nearbyLantern.Interact();
-            Destroy(nearbyLantern);
+            Destroy(((MonoBehaviour)nearbyLantern).gameObject);
         }
         if (nearbySword != null && Input.GetKeyDown(KeyCode.E))
         {
             nearbySword.Interact();
-            Destroy(nearbySword);
+            Destroy(((MonoBehaviour)nearbySword).gameObject);
         }
         if (nearbyBow != null && Input.GetKeyDown(KeyCode.E))
         {
             nearbyBow.Interact();
-            Destroy(nearbyBow);
+            Destroy(((MonoBehaviour)nearbyBow).gameObject);
         }
         if (nearbyDoor != null && Input.GetKeyDown(KeyCode.E))
         {
@@ -67,14 +67,14 @@ public class PlayerInteractions : MonoBehaviour
         }
         if (collision.CompareTag("Bow"))
         {
-            if(nearbyBow == collision.GetComponent<BowInteraction>())
+            if (nearbyBow == collision.GetComponent<BowInteraction>())
             {
                 nearbyBow = null;
             }
         }
         if (collision.CompareTag("Door"))
         {
-            if(nearbyDoor == collision.GetComponent<Door>())
+            if (nearbyDoor == collision.GetComponent<Door>())
             {
                 nearbyDoor = null;
             }

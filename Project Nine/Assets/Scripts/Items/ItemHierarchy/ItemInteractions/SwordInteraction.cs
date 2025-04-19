@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class SwordInteraction : MonoBehaviour
 {
-    [SerializeField] Sword sword;
+    [SerializeField] private Item sword;
     private Inventory inventory;
 
     void Awake()
     {
-        inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
+        GameObject gameObject = GameObject.FindGameObjectWithTag("Inventory");
+        if (gameObject == null)
+        {
+            Debug.Log("No Game Object Found");
+            return;
+        }
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
     }
     public void Interact()
     {
