@@ -5,13 +5,14 @@ using UnityEngine;
 public class StartStopChase : MonoBehaviour
 {
     public Transform player;
-    public float destinationDist = 1.5f;
-    private int distanceThreshold = 8;
+    public float endReachedDist = 1.5f; // distance at which we consider the agent has reached its destination
+    public int distanceThreshold = 8; // Distance at which to start chasing .This and the above will differ for the size of each enemy
     private Patrol patrolScript;
     private AIDestinationSetter aiDestScript;
     private bool isPatrolling;
     private bool isChasing;
     private bool isAtDestination; // used to determine if it has reached player so that it doesn't ram him into the wall
+
     
         // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +24,7 @@ public class StartStopChase : MonoBehaviour
         aiDestScript = GetComponent<AIDestinationSetter>();
 
         aiDestScript.target = player;
+        makeHomeBase();
         StartPatrol();
     }
 
@@ -39,11 +41,11 @@ public class StartStopChase : MonoBehaviour
         {
             StartPatrol(); 
         }
-        else if (distance > 2 && isAtDestination)
+        else if (distance > endReachedDist && isAtDestination)
         {
             StartChase();
         }
-        else if (distance < 2 && isChasing)
+        else if (distance < endReachedDist && isChasing)
         {
             StopChase();
         }
@@ -77,5 +79,14 @@ public class StartStopChase : MonoBehaviour
         isPatrolling = false;
         isAtDestination = true;
     }
+
+    void makeHomeBase()
+    {
+        GameObject baseGO = new GameObject();
+        baseGO.transform.position = transform.position;
+        patrolScript.targets[0] = baseGO.transform;
+
+
+   }
 
 }

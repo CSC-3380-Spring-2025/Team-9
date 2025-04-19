@@ -264,12 +264,6 @@ MonoBehaviour:
   version: 1
   targets:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   delay: 0
 --- !u!114 &9160533470255561901
 MonoBehaviour:
@@ -284,7 +278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  destinationDist: 1.5
+  endReachedDist: 1.5
+  distanceThreshold: 8
 --- !u!114 &5683660131111919391
 MonoBehaviour:
   m_ObjectHideFlags: 0
