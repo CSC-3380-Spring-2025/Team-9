@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4541079017708301824}
   - component: {fileID: -1284083782050483444}
   m_Layer: 0
-  m_Name: Lantern
+  m_Name: LanternPickUp
   m_TagString: Lantern
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

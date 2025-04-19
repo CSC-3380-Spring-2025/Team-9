@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2350768894071098968
+--- !u!1 &3196724185383042136
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8199598575784320474}
-  - component: {fileID: 5111959438336234766}
-  - component: {fileID: 5865655637778148604}
-  - component: {fileID: -5621855518439577492}
-  m_Layer: 0
-  m_Name: Sword
-  m_TagString: Sword
+  - component: {fileID: 4622749386816713553}
+  - component: {fileID: 7645376710573666747}
+  - component: {fileID: 749953888863556434}
+  - component: {fileID: 8863068543327415408}
+  m_Layer: 7
+  m_Name: BowPickup
+  m_TagString: Bow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8199598575784320474
+--- !u!4 &4622749386816713553
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2350768894071098968}
+  m_GameObject: {fileID: 3196724185383042136}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.266474, y: -94.3537, z: 0}
+  m_LocalPosition: {x: -9.730325, y: -34.963146, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5111959438336234766
+--- !u!212 &7645376710573666747
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2350768894071098968}
+  m_GameObject: {fileID: 3196724185383042136}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  m_Color: {r: 0.3773585, g: 0.22897798, b: 0.10145959, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -89,26 +89,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5865655637778148604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2350768894071098968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e333d8e64d7514b9bb195973592dd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sword: {fileID: 11400000, guid: 4a735376f26e9f048b411e4e76e506af, type: 2}
---- !u!58 &-5621855518439577492
+--- !u!58 &749953888863556434
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2350768894071098968}
+  m_GameObject: {fileID: 3196724185383042136}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -138,3 +125,17 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &8863068543327415408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3196724185383042136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d08bbd665095f4c43ad2a2882294de18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bowItemSO: {fileID: 11400000, guid: 4c60132e4c833fc4dae1cdcab2a32548, type: 2}
+  bowEquipPrefab: {fileID: 374224098306806070, guid: dc06691f7e402454ab40d4f775411e78, type: 3}

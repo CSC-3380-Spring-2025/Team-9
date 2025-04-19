@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class BowInteraction : MonoBehaviour
 {
-    [SerializeField] private Item bow;
-    private Inventory inventory;
+    [SerializeField] private BowItem bow;
+    [SerializeField] private GameObject bowEquipPrefab;
 
+    private Inventory inventory;
     void Awake()
     {
         GameObject gameObject = GameObject.FindGameObjectWithTag("Inventory");
@@ -17,6 +18,8 @@ public class BowInteraction : MonoBehaviour
     }
     public void Interact()
     {
+        if (inventory == null) return;
         inventory.AddItem(bow);
+        Instantiate(bowEquipPrefab);
     }
 }
