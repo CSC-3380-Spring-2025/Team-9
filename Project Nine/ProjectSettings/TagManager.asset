@@ -10,6 +10,9 @@ TagManager:
   - Immortal
   - Snail
   - Bow
+  - Sword
+  - Lantern
+  - Inventory
   layers:
   - Default
   - TransparentFX
