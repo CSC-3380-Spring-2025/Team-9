@@ -1,5 +1,5 @@
 using UnityEngine;
-
+// shouldn't be needed anymore but leaving here for now in case we need to go back
 public class EnemyHealth : MonoBehaviour
 {
     public int healthPoints = 100;//max health that you start with

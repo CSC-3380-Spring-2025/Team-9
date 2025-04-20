@@ -1,6 +1,8 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IDamageable<DamageData>
 {
     public int healthPoints = 100;//max health that you start with
     public int currentHealthPoints;//variable health from damage and healing
@@ -11,13 +13,25 @@ public class PlayerHealth : MonoBehaviour
         currentHealthPoints = healthPoints;
     }
 
-    public void TakeDamage(int damage)//processes damage taken to health
+    public void TakeDamage(DamageData damage)//processes damage taken to health
     {
-        currentHealthPoints = Mathf.Max(currentHealthPoints - damage, 0); //Prevent negative health
+        int calculatedDamage = CalculateDamage(damage);
+        currentHealthPoints = Mathf.Max(currentHealthPoints - calculatedDamage, 0); //Prevent negative health
         if (currentHealthPoints <= 0)//calls "Die" method to kill the player
         {
             Die();
         }
+    }
+    private int CalculateDamage(DamageData damage)
+    {
+        int result = damage.baseDamage;
+
+        if (damage.isCritical)
+        {
+            result = (int)(result * 1.5);
+        }
+
+        return result;
     }
 
     public void HealDamage(int heal)//processes healing received to health
@@ -26,12 +40,17 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-    void Die()
+    public void Die()
     {
         if (isDead) return;
         isDead = true;
         //before destroying, cease all animations, activity, etc.
         //Game over screen implemented, items lost, etc.
+
         Destroy(gameObject);
+        SceneManager.LoadScene("ResetMenuScene");
+
     }
+
+
 }

@@ -83,9 +83,9 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
 
     public Vector2Int HallAlignmentUp(AbstractWalkerRoom roomTarget)
     {
-        for (int y = roomGrid.GetLength(0) - 1; y >= 0; y--)
+        for (int y = roomGrid.GetLength(0) - 2; y >= 0; y--) // originally -1. 
         {
-            for (int x = 0; x < roomGrid.GetLength(1); x++)
+            for (int x = 1; x < roomGrid.GetLength(1); x++) // orginally x = 0.
             {
                 if (roomGrid[x,y] == Grid.FLOOR)
                 {
@@ -103,9 +103,9 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
     }
     public Vector2Int HallAlignmentDown(AbstractWalkerRoom roomTarget)
     {
-        for (int y = 0; y < roomGrid.GetLength(0); y++)
+        for (int y = 1; y < roomGrid.GetLength(0); y++) // originally y = 0
         {
-            for (int x = 0; x < roomGrid.GetLength(1); x++)
+            for (int x = 1; x < roomGrid.GetLength(1); x++) // originally x = 0
             {
                 if (roomGrid[x, y] == Grid.FLOOR)
                 {
@@ -123,15 +123,15 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
     }
     public Vector2Int HallAlignmentLeft(AbstractWalkerRoom roomTarget)
     {
-        for (int x = 0; x < roomGrid.GetLength(1); x++)
+        for (int x = 1; x < roomGrid.GetLength(1); x++) // originally x = 0
         {
-            for (int y = 0; y < roomGrid.GetLength(0); y++)
+            for (int y = 1; y < roomGrid.GetLength(0); y++) // originally y = 0
             {
                 if (roomGrid[x, y] == Grid.FLOOR)
                 {
-                    for (int x2 = 0; x2 < roomTarget.roomGrid.GetLength(1); x2++)
+                    for (int x2 = 0; x2 < roomTarget.roomGrid.GetLength(1); x2++) // should i change this to start at 1 too?
                     {
-                        if (roomTarget.roomGrid[x2, y] == Grid.FLOOR)
+                        if (roomTarget.roomGrid[x2, y] == Grid.FLOOR) 
                         {
                             return new Vector2Int(x, y);
                         }
@@ -143,9 +143,9 @@ public abstract class AbstractWalkerRoom : AbstractRoom, IConnection<AbstractWal
     }
     public Vector2Int HallAlignmentRight(AbstractWalkerRoom roomTarget)
     {
-        for (int x = roomGrid.GetLength(1) -1; x >= 0; x--)
+        for (int x = roomGrid.GetLength(1) -2 ; x >= 0; x--) // originally -1
         {
-            for (int y = 0; y < roomGrid.GetLength(0); y++)
+            for (int y = 1; y < roomGrid.GetLength(0); y++) // originallly y = 0
             {
                 if (roomGrid[x, y] == Grid.FLOOR)
                 {
