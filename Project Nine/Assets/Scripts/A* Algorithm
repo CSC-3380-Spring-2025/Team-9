@@ -1,192 +1,74 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
-
-public class Node
-{
-    public bool isWalkable;
-    public Vector3 worldPosition;
-    public int gCost, hCost, fCost;
-    public int gridX, gridY;
-    public Node parent;
-
-    public Node(bool isWalkable, Vector3 worldPosition, int gridX, int gridY)
-    {
-        this.isWalkable = isWalkable;
-        this.worldPosition = worldPosition;
-        this.gridX = gridX;
-        this.gridY = gridY;
-        this.gCost = int.MaxValue;
-        this.hCost = 0;
-        CalculateFCost();
-    }
-
-    public void CalculateFCost() => fCost = gCost + hCost;
-}
-
-
-
-public class GridManager : MonoBehaviour
-{
-    public int gridWidth, gridHeight;
-    public float nodeSize;
-    public LayerMask obstacleMask;
-    
-    private Node[,] grid;
-    private int gridSizeX, gridSizeY;
-
-    void Start()
-    {
-        CreateGrid();
-    }
-
-    void CreateGrid()
-    {
-        grid = new Node[gridWidth, gridHeight];
-        Vector3 worldBottomLeft = transform.position - Vector3.right * gridWidth / 2 - Vector3.forward * gridHeight / 2;
-
-        for (int x = 0; x < gridWidth; x++)
-        {
-            for (int y = 0; y < gridHeight; y++)
-            {
-                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeSize + nodeSize / 2) + Vector3.forward * (y * nodeSize + nodeSize / 2);
-                bool isWalkable = !Physics.CheckSphere(worldPoint, nodeSize / 2, obstacleMask);
-                grid[x, y] = new Node(isWalkable, worldPoint, x, y);
-            }
-        }
-    }
-
-    public Node GetNodeFromWorldPosition(Vector3 worldPosition)
-    {
-        float percentX = Mathf.Clamp01((worldPosition.x - transform.position.x + (gridWidth * nodeSize) / 2) / (gridWidth * nodeSize));
-        float percentY = Mathf.Clamp01((worldPosition.z - transform.position.z + (gridHeight * nodeSize) / 2) / (gridHeight * nodeSize));
-        int x = Mathf.RoundToInt((gridWidth - 1) * percentX);
-        int y = Mathf.RoundToInt((gridHeight - 1) * percentY);
-
-        return grid[x, y];
-    }
-
-    public List<Node> GetNeighbors(Node node)
-    {
-        List<Node> neighbors = new List<Node>();
-
-        for (int dx = -1; dx <= 1; dx++)
-        {
-            for (int dy = -1; dy <= 1; dy++)
-            {
-                if (dx == 0 && dy == 0) continue; 
-
-                int checkX = node.gridX + dx;
-                int checkY = node.gridY + dy;
-
-                if (checkX >= 0 && checkX < gridWidth && checkY >= 0 && checkY < gridHeight)
-                {
-                    neighbors.Add(grid[checkX, checkY]);
-                }
-            }
-        }
-        return neighbors;
-    }
-}
-
-public class Pathfinder : MonoBehaviour
-{
-    public Pathfinder pathfinder;
-    public GridManager gridManager;
-
-    public List<Node> FindPath(Vector3 startPos, Vector3 targetPos)
-    {
-        Node startNode = gridManager.GetNodeFromWorldPosition(startPos);
-        Node targetNode = gridManager.GetNodeFromWorldPosition(targetPos);
-
-        if (!startNode.isWalkable || !targetNode.isWalkable)
-        {
-            return null; // No valid path
-        }
-
+public class AStarPathfinding : MonoBehaviour {
+    public List<Node> FindPath(Node startNode, Node targetNode, Node[,] grid) {
         List<Node> openSet = new List<Node>();
         HashSet<Node> closedSet = new HashSet<Node>();
         openSet.Add(startNode);
-
-        while (openSet.Count > 0)
-        {
+        while (openSet.Count > 0) {
             Node currentNode = openSet[0];
-
-            for (int i = 1; i < openSet.Count; i++)
-            {
-                if (openSet[i].fCost < currentNode.fCost || (openSet[i].fCost == currentNode.fCost && openSet[i].hCost < currentNode.hCost))
-                {
+            for (int i = 1; i < openSet.Count; i++) {
+                if (openSet[i].fCost < currentNode.fCost ||
+                    (openSet[i].fCost == currentNode.fCost && openSet[i].hCost < currentNode.hCost)) {
                     currentNode = openSet[i];
                 }
             }
 
             openSet.Remove(currentNode);
             closedSet.Add(currentNode);
-
-            if (currentNode == targetNode)
-            {
+            if (currentNode == targetNode) {
                 return RetracePath(startNode, targetNode);
             }
 
-            foreach (Node neighbor in gridManager.GetNeighbors(currentNode))
-            {
-                if (!neighbor.isWalkable || closedSet.Contains(neighbor))
+            foreach (Node neighbor in GetNeighbors(currentNode, grid)) {
+                if (!neighbor.walkable || closedSet.Contains(neighbor))
                     continue;
-
-                int newGCost = currentNode.gCost + GetDistance(currentNode, neighbor);
-                if (newGCost < neighbor.gCost || !openSet.Contains(neighbor))
-                {
-                    neighbor.gCost = newGCost;
+                int newMovementCost = currentNode.gCost + GetDistance(currentNode, neighbor);
+                if (newMovementCost < neighbor.gCost || !openSet.Contains(neighbor)) {
+                    neighbor.gCost = newMovementCost;
                     neighbor.hCost = GetDistance(neighbor, targetNode);
-                    neighbor.CalculateFCost();
                     neighbor.parent = currentNode;
-
                     if (!openSet.Contains(neighbor))
                         openSet.Add(neighbor);
                 }
             }
         }
-        return null; // No path found
+
+        return null; 
     }
 
-    List<Node> RetracePath(Node startNode, Node endNode)
-    {
+    List<Node> RetracePath(Node startNode, Node endNode) {
         List<Node> path = new List<Node>();
         Node currentNode = endNode;
-
-        while (currentNode != startNode)
-        {
+        while (currentNode != startNode) {
             path.Add(currentNode);
             currentNode = currentNode.parent;
         }
-
         path.Reverse();
         return path;
     }
 
-    int GetDistance(Node a, Node b)
-    {
-        int distX = Mathf.Abs(a.gridX - b.gridX);
-        int distY = Mathf.Abs(a.gridY - b.gridY);
-        return (distX + distY) + (Mathf.Abs(distX - distY) * 4);
-    }
+    List<Node> GetNeighbors(Node node, Node[,] grid) {
+        List<Node> neighbors = new List<Node>();
+        Vector2Int[] directions = {
+            Vector2Int.up, Vector2Int.down,
+            Vector2Int.left, Vector2Int.right
+        };
 
-    void Update()
-{
-    if (Input.GetMouseButtonDown(0))
-    {
-        Vector3 startPos = transform.position;
-        Vector3 targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        targetPos.y = 0; // Ensure it's on the ground plane
-
-        List<Node> path = pathfinder.FindPath(startPos, targetPos);
-        if (path != null)
-        {
-            foreach (Node node in path)
-            {
-                Debug.DrawRay(node.worldPosition, Vector3.up * 2, Color.green, 1f);
+        foreach (var dir in directions) {
+            Vector2Int neighborPos = node.gridPosition + dir;
+            if (neighborPos.x >= 0 && neighborPos.y >= 0 &&
+                neighborPos.x < grid.GetLength(0) && neighborPos.y < grid.GetLength(1)) {
+                neighbors.Add(grid[neighborPos.x, neighborPos.y]);
             }
         }
+        return neighbors;
     }
-}
+
+    int GetDistance(Node a, Node b) {
+        int dstX = Mathf.Abs(a.gridPosition.x - b.gridPosition.x);
+        int dstY = Mathf.Abs(a.gridPosition.y - b.gridPosition.y);
+        return dstX + dstY; 
+    }
 }
