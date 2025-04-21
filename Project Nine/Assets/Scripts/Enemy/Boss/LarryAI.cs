@@ -94,6 +94,6 @@ public class LarryAI : MonoBehaviour
 
     void HandleBossDeath()
     {
-        FindObjectOfType<AugmentSelectionManager>(true).ShowAugmentCards(player);
+        FindFirstObjectByType<AugmentSelectionManager>(FindObjectsInactive.Include).ShowAugmentCards(player);
     }
 }
