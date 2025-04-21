@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class LanternInteraction : MonoBehaviour
+public class LanternInteraction : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Item lantern;
+    [SerializeField] private LanternItem lantern;
+    [SerializeField] private GameObject lanternEquipedPrefab;
+
     private Inventory inventory;
 
     void Awake()
@@ -17,6 +19,8 @@ public class LanternInteraction : MonoBehaviour
     }
     public void Interact()
     {
+        if (inventory == null) return;
         inventory.AddItem(lantern);
+        Instantiate(lanternEquipedPrefab);
     }
 }

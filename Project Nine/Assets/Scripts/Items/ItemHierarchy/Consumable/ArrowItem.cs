@@ -1,7 +1,11 @@
 using UnityEngine;
 
-public class ArrowItem : Item
+[CreateAssetMenu(fileName = "ArrowItem", menuName = "Items/Consumables/Arrow")]
+public class ArrowItem : ConsumableItems
 {
-    public Vector2 Velocity;
-    public Transform arrowPosition;
+    [Header("Arrow Vars")]
+    public float maxVelocity;
+
+    private Vector3 spawnPosition;
+    private Quaternion spawnRotation;
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1284083782050483444}
   m_Layer: 0
   m_Name: LanternPickUp
-  m_TagString: Lantern
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,4 +137,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ebfc1cb30e4404abe1bd1b2323f8e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lantern: {fileID: 11400000, guid: 241ed086f9d939b47ac7240dd5a19f22, type: 2}
+  lantern: {fileID: 11400000, guid: 08503dac7e423c342801af040e3b5ae6, type: 2}
+  lanternEquipedPrefab: {fileID: 86726080597612557, guid: ba40dea41347d62469028023dd492282, type: 3}

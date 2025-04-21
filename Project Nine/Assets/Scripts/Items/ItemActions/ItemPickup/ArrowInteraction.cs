@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class SwordInteraction : MonoBehaviour, IInteractable
+public class ArrowInteraction : MonoBehaviour, IInteractable
 {
-    [SerializeField] private SwordItem sword;
-    [SerializeField] private GameObject swordEquipedPrefab;
+    [SerializeField] private ArrowItem arrow;
+    [SerializeField] private GameObject arrowEquipedPrefab;
 
     private Inventory inventory;
-
     void Awake()
     {
         GameObject gameObject = GameObject.FindGameObjectWithTag("Inventory");
@@ -20,7 +19,7 @@ public class SwordInteraction : MonoBehaviour, IInteractable
     public void Interact()
     {
         if (inventory == null) return;
-        inventory.AddItem(sword);
-        Instantiate(swordEquipedPrefab);
+        inventory.AddItem(arrow);
+        Instantiate(arrowEquipedPrefab);
     }
 }
