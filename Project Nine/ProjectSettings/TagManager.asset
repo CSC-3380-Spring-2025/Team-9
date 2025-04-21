@@ -13,6 +13,8 @@ TagManager:
   - Sword
   - Lantern
   - Inventory
+  - Interaction
+  - Interactable
   layers:
   - Default
   - TransparentFX
