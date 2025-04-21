@@ -22,10 +22,10 @@ public class Snail : BaseEnemy // immortal enemy
         //damages the player when detected
         foreach (Collider2D player in hitPlayers)
         {
-            Debug.Log("Found player");
+         
             aiDestScript.enabled = false; // stop moving towards/pushing the player when it has attacked it.
 
-            player.GetComponent<PlayerHealth>().Die();
+//            player.GetComponent<PlayerHealth>().Die();
         }
 
     }

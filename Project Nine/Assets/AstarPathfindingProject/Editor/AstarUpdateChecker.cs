@@ -34,7 +34,7 @@ namespace Pathfinding {
 		const double updateCheckRate = 1F;
 
 		/// <summary>URL to the version file containing the latest version number.</summary>
-		const string updateURL = "http://www.arongranberg.com/astar/version.php";
+		const string updateURL = "https://www.arongranberg.com/astar/version.php";
 
 		/// <summary>Last time an update check was made</summary>
 		public static System.DateTime lastUpdateCheck {
@@ -159,6 +159,7 @@ namespace Pathfinding {
 		/// Returns: True if an update check is progressing (WWW request)
 		/// </summary>
 		static bool CheckForUpdates () {
+			//return true;
 			if (updateCheckDownload != null && updateCheckDownload.isDone) {
 				if (!string.IsNullOrEmpty(updateCheckDownload.error)) {
 					Debug.LogWarning("There was an error checking for updates to the A* Pathfinding Project\n" +

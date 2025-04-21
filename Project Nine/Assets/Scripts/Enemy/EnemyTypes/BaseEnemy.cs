@@ -6,7 +6,7 @@ public class BaseEnemy : MonoBehaviour
     public float enemyAttackRange = 0.5f;
     public LayerMask playerLayers;
     public int enemyAttackDamage = 10;
-    private float timeOfNextEnemyAttack = 0f;
+    //private float timeOfNextEnemyAttack = 0f;
     public float enemyAttackRate = 0.5f; //rate is halved compared to player attacks to give players more sense of fairness, could change
 
     public DamageType damageType = DamageType.Normal; 
