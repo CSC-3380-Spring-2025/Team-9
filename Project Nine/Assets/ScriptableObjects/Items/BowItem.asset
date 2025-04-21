@@ -16,8 +16,8 @@ MonoBehaviour:
   _type: 0
   _actionType: 0
   _range: {x: 5, y: 4}
-  _stackable: 1
+  _stackable: 0
   _image: {fileID: -1659306006, guid: 69d278086ddbf194999be5c2d6c88e9a, type: 3}
+  dmg: 10
   maxLoadTime: 2
-  bufferTime: 0.25
-  maxDamage: 10
+  bufferTime: 0.15

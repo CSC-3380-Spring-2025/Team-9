@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class SwordInteraction : MonoBehaviour
 {
-    [SerializeField] private Item sword;
+    [SerializeField] private SwordItem sword;
+    [SerializeField] private GameObject swordEquipedPrefab;
+
     private Inventory inventory;
 
     void Awake()
@@ -17,6 +19,8 @@ public class SwordInteraction : MonoBehaviour
     }
     public void Interact()
     {
+        if (inventory == null) return;
         inventory.AddItem(sword);
+        Instantiate(swordEquipedPrefab);
     }
 }

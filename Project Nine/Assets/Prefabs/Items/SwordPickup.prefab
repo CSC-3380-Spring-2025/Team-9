@@ -101,7 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e333d8e64d7514b9bb195973592dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 11400000, guid: 4a735376f26e9f048b411e4e76e506af, type: 2}
+  sword: {fileID: 11400000, guid: 569cecde256ee0143b65dd6307a3d3d1, type: 2}
+  swordEquipedPrefab: {fileID: 4502551338829927690, guid: 697aea1792281dc4fb37707257d511ac, type: 3}
 --- !u!58 &-5621855518439577492
 CircleCollider2D:
   m_ObjectHideFlags: 0

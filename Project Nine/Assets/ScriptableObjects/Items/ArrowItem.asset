@@ -9,12 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a76fbeda7ef33ce43ad27b00b96df64b, type: 3}
-  m_Name: Sword
+  m_Script: {fileID: 11500000, guid: fe246f64be02e45458026f09acfbf47c, type: 3}
+  m_Name: ArrowItem
   m_EditorClassIdentifier: 
   _tile: {fileID: 0}
-  _type: 0
-  _actionType: 0
+  _type: 1
+  _actionType: 1
   _range: {x: 5, y: 4}
-  _stackable: 0
-  _image: {fileID: -127511830, guid: 69d278086ddbf194999be5c2d6c88e9a, type: 3}
+  _stackable: 1
+  _image: {fileID: 343811025, guid: 69d278086ddbf194999be5c2d6c88e9a, type: 3}
+  maxStackNum: 16
+  maxVelocity: 0

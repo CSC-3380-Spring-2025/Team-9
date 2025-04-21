@@ -15,7 +15,7 @@ public class BowShoot : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("It Started");
+        Debug.Log("Bow Shoot Script Started");
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
     }
     void Update()

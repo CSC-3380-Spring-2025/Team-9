@@ -6,10 +6,11 @@ public class BowInteraction : MonoBehaviour
     [SerializeField] private GameObject bowEquipPrefab;
 
     private Inventory inventory;
+
     void Awake()
     {
         GameObject gameObject = GameObject.FindGameObjectWithTag("Inventory");
-        if(gameObject == null)
+        if (gameObject == null)
         {
             Debug.Log("No Game Object Found");
             return;
