@@ -20,4 +20,4 @@ MonoBehaviour:
   _image: {fileID: -1659306006, guid: 69d278086ddbf194999be5c2d6c88e9a, type: 3}
   dmg: 10
   maxLoadTime: 2
-  bufferTime: 0.15
+  bufferTime: 0.25

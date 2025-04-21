@@ -3,80 +3,31 @@ using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
 {
-    private Door nearbyDoor;
-    private BowInteraction nearbyBow;
-    private SwordInteraction nearbySword;
-    private LanternInteraction nearbyLantern;
+    private IInteractable interactable;
+
+    
     void Update()
     {
-        if (nearbyLantern != null && Input.GetKeyDown(KeyCode.E))
+        if (interactable != null && Input.GetKeyDown(KeyCode.E))
         {
-            nearbyLantern.Interact();
-            Destroy(((MonoBehaviour)nearbyLantern).gameObject);
-        }
-        if (nearbySword != null && Input.GetKeyDown(KeyCode.E))
-        {
-            nearbySword.Interact();
-            Destroy(((MonoBehaviour)nearbySword).gameObject);
-        }
-        if (nearbyBow != null && Input.GetKeyDown(KeyCode.E))
-        {
-            nearbyBow.Interact();
-            Destroy(((MonoBehaviour)nearbyBow).gameObject);
-        }
-        if (nearbyDoor != null && Input.GetKeyDown(KeyCode.E))
-        {
-            nearbyDoor.Interact();
-            Destroy(nearbyDoor);
+            interactable.Interact();
+            Destroy(((MonoBehaviour)interactable).gameObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Lantern"))
+        if (collision.CompareTag("Interactable"))
         {
-            nearbyLantern = collision.GetComponent<LanternInteraction>();
-        }
-        if (collision.CompareTag("Sword"))
-        {
-            nearbySword = collision.GetComponent<SwordInteraction>();
-        }
-        if (collision.CompareTag("Bow"))
-        {
-            nearbyBow = collision.GetComponent<BowInteraction>();
-        }
-        if (collision.CompareTag("Door"))
-        {
-            nearbyDoor = collision.GetComponent<Door>();
+            interactable = collision.GetComponent<IInteractable>();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Lantern"))
+        if (collision.CompareTag("Interactable"))
         {
-            if (nearbyLantern == collision.GetComponent<LanternInteraction>())
+            if (interactable == collision.GetComponent<IInteractable>())
             {
-                nearbyLantern = null;
-            }
-        }
-        if (collision.CompareTag("Sword"))
-        {
-            if (nearbySword == collision.GetComponent<SwordInteraction>())
-            {
-                nearbySword = null;
-            }
-        }
-        if (collision.CompareTag("Bow"))
-        {
-            if (nearbyBow == collision.GetComponent<BowInteraction>())
-            {
-                nearbyBow = null;
-            }
-        }
-        if (collision.CompareTag("Door"))
-        {
-            if (nearbyDoor == collision.GetComponent<Door>())
-            {
-                nearbyDoor = null;
+                interactable = null;
             }
         }
     }

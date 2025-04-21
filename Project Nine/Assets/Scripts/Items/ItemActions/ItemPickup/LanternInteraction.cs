@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LanternInteraction : MonoBehaviour
+public class LanternInteraction : MonoBehaviour, IInteractable
 {
     [SerializeField] private LanternItem lantern;
     [SerializeField] private GameObject lanternEquipedPrefab;
