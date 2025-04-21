@@ -17,13 +17,13 @@ public class SwordSwing : MonoBehaviour
     void Update()
     {
         mainHandItem = inventory._inventorySlots[0].GetComponentInChildren<InventoryItem>();
-        if (mainHandItem == null || !(mainHandItem.item is SwordItem swordItem))
+        if (mainHandItem == null || !(mainHandItem.item is SwordItem swordItemType))
         {
             inMainHand = false;
             sword = null;
             return;
         }
-        sword = swordItem;
+        sword = swordItemType;
         inMainHand = true;
 
         if (sword != null && inMainHand && Input.GetKeyDown(KeyCode.Mouse0))
