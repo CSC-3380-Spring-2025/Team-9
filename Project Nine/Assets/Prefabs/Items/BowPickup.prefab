@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8863068543327415408}
   m_Layer: 7
   m_Name: BowPickup
-  m_TagString: Bow
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

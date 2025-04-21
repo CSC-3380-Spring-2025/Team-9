@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BowInteraction : MonoBehaviour
+public class BowInteraction : MonoBehaviour, IInteractable  
 {
     [SerializeField] private BowItem bow;
     [SerializeField] private GameObject bowEquipPrefab;

@@ -10,7 +10,7 @@ public class BowShoot : MonoBehaviour
 
     private float startTime;
 
-    private bool isHolding = false;
+    private bool isHoldingKey = false;
     private bool inMainHand = false;
 
     void Start()
@@ -32,16 +32,16 @@ public class BowShoot : MonoBehaviour
 
         if (bow != null && inMainHand)
         {
-            if (Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 startTime = 0;
                 LoadArrow();
             }
-            if(isHolding && HeldLongerThanMaxTime())
+            if(isHoldingKey && HeldLongerThanMaxTime())
             {
                 ReleaseArrow();
             }
-            if(Input.GetKeyUp(KeyCode.L) && isHolding)
+            if(Input.GetKeyUp(KeyCode.Mouse0) && isHoldingKey)
             {
                 ReleaseArrow();
             }
@@ -51,7 +51,7 @@ public class BowShoot : MonoBehaviour
     private void LoadArrow()
     {
         startTime = Time.time;
-        isHolding = true;
+        isHoldingKey = true;
         Debug.Log("ArrowLoading");
     }
     private bool HeldLongerThanMaxTime()
@@ -77,6 +77,6 @@ public class BowShoot : MonoBehaviour
         {
             Debug.Log("ArrowFired");
         }
-        isHolding = false;
+        isHoldingKey = false;
     }
 }

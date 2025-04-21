@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5621855518439577492}
   m_Layer: 0
   m_Name: SwordPickup
-  m_TagString: Sword
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
