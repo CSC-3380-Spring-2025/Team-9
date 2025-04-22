@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484336f6239883341821749f57b2ac63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snailPrefab: {fileID: 0}
+  snailPrefab: {fileID: 7355051335088246799}
 --- !u!114 &9117939982421193129
 MonoBehaviour:
   m_ObjectHideFlags: 0
