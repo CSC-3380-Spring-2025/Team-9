@@ -13,6 +13,7 @@ TagManager:
   - Interactable
   - Wall
   - Enemy
+  - Spider
   layers:
   - Default
   - TransparentFX
