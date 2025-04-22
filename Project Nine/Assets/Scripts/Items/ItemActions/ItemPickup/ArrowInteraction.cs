@@ -3,7 +3,6 @@ using UnityEngine;
 public class ArrowInteraction : MonoBehaviour, IInteractable
 {
     [SerializeField] private ArrowItem arrow;
-    [SerializeField] private GameObject arrowEquipedPrefab;
 
     private Inventory inventory;
     void Awake()
@@ -19,7 +18,8 @@ public class ArrowInteraction : MonoBehaviour, IInteractable
     public void Interact()
     {
         if (inventory == null) return;
+
+        arrow.stackSize = (int)(Random.Range(1, 16));
         inventory.AddItem(arrow);
-        Instantiate(arrowEquipedPrefab);
     }
 }
