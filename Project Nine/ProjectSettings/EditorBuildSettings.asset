@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: e1611f8278716a64f9e22ebb48033bc7
   - enabled: 1
+    path: Assets/Scenes/LevelGenerationScene_v2.unity
+    guid: 61eb46d6baa73284ea7cf337b379f2de
+  - enabled: 1
+    path: Assets/Scenes/Demo.unity
+    guid: c0d8688943fb53b45af2f13451cde511
+  - enabled: 1
     path: Assets/Scenes/MovementTestScene.unity
     guid: 5e5839e440b0b4d4c8097b999ca34dbd
   - enabled: 1
@@ -20,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossRoom1.unity
     guid: 07e652b102905934793b4e0f6224d6b0
+  - enabled: 1
+    path: Assets/Scenes/BossRoom.unity
+    guid: 5479e7a3aa61ba34195dde7f00a705b0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0
