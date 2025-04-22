@@ -107779,6 +107779,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1243653856}
   - component: {fileID: 1243653855}
+  - component: {fileID: 1243653857}
   m_Layer: 0
   m_Name: Enemy Spawner
   m_TagString: Untagged
@@ -107814,6 +107815,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1243653857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243653854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63dcbd16368d3624d993044d4694e61c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  immortalPrefab: {fileID: 1094068214292967567, guid: f6d020b247ab2a841b8665aec4412da8, type: 3}
+  maxNumImmortals: 3
+  spawnChance: 0.1
 --- !u!1 &1473043712
 GameObject:
   m_ObjectHideFlags: 0
@@ -108203,6 +108219,7 @@ MonoBehaviour:
   floor: {fileID: 11400000, guid: 81aad588471f8be4d9a5884a7e65b504, type: 2}
   tileCount: 6689
   snailSpawn: {fileID: 1243653855}
+  immortalSpawn: {fileID: 0}
   doorPrefab: {fileID: 1613247269}
   playerPrefab: {fileID: 520639555}
 --- !u!114 &1873934001
