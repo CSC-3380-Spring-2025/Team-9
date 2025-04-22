@@ -76,8 +76,8 @@ public class BowShoot : MonoBehaviour
         else
         {
             Debug.Log("ArrowFired");
-            Instantiate(arrowShot);
-            
+
+            GameObject arrowInstance = Instantiate(arrowShot, transform.position, Quaternion.identity);
         }
         isHoldingKey = false;
     }
