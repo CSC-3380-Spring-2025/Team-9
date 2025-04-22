@@ -25,7 +25,7 @@ public class Snail : BaseEnemy // immortal enemy
          
             aiDestScript.enabled = false; // stop moving towards/pushing the player when it has attacked it.
 
-//            player.GetComponent<PlayerHealth>().Die();
+            player.GetComponent<PlayerHealth>().Die();
         }
 
     }

@@ -5,6 +5,6 @@ public class MainMenu : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("MovementTestScene"); // loads the scene named "MovementTestScene"
+        SceneManager.LoadScene("LevelGenerationScene_v2"); // loads the scene named "MovementTestScene"
     }
 }
