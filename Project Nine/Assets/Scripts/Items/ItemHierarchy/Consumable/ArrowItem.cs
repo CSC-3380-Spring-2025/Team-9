@@ -4,7 +4,10 @@ using UnityEngine;
 public class ArrowItem : ConsumableItems
 {
     [Header("Arrow Vars")]
-    public float maxArrowVelocity = 10;
+    public float maxArrowVelocity = 30;
 
-    [HideInInspector] public Vector2 arrowDirection;
+    [HideInInspector] 
+    public Vector2 arrowDirection;
+    [HideInInspector]
+    public int damage = 20;
 }

@@ -5,7 +5,6 @@ public class PlayerInteractions : MonoBehaviour
 {
     private IInteractable interactable;
 
-    
     void Update()
     {
         if (interactable != null && Input.GetKeyDown(KeyCode.E))
