@@ -554,6 +554,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Larry
       objectReference: {fileID: 0}
+    - target: {fileID: 4944330490726803107, guid: 6ca25a61f38b87f4299b8da1f3bbf378, type: 3}
+      propertyPath: m_TagString
+      value: Boss
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -21,7 +21,7 @@ public class ArrowShot : MonoBehaviour
     {
         
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
         GameObject type = collision.gameObject;
         switch (collision.tag)
