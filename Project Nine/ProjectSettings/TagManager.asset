@@ -9,12 +9,11 @@ TagManager:
   - Boss
   - Immortal
   - Snail
-  - Bow
-  - Sword
-  - Lantern
   - Inventory
-  - Interaction
   - Interactable
+  - Wall
+  - Enemy
+  - Spider
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4968995540241169463}
   - component: {fileID: 629714159600938557}
-  - component: {fileID: 8977047837399014887}
+  - component: {fileID: 6266272368585739147}
+  - component: {fileID: -6232214618131695659}
   m_Layer: 0
   m_Name: BowEquiped
   m_TagString: Untagged
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8977047837399014887
+--- !u!114 &6266272368585739147
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,5 +99,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dbad64c9f462d24ba734a8e075550ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowShot: {fileID: 7784043769484360586, guid: d3e9198a7466fe44aa6766405c463c54, type: 3}
+--- !u!114 &-6232214618131695659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374224098306806070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3b4bd63ebc5a0438052c2c297ad8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

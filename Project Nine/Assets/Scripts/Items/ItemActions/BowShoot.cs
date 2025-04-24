@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class BowShoot : MonoBehaviour
 {
+    [SerializeField] private GameObject arrowShot;
+
     private Inventory inventory;
     private InventoryItem mainHandItem;
     private BowItem bow;
-    private ArrowItem arrow;
 
     private float startTime;
 
@@ -67,7 +68,6 @@ public class BowShoot : MonoBehaviour
         if (HeldLongerThanMaxTime())
         {
             Debug.Log("HeldForTooLong");
-
         }
         else if (HeldLessThanMinTime())
         {
@@ -76,6 +76,8 @@ public class BowShoot : MonoBehaviour
         else
         {
             Debug.Log("ArrowFired");
+
+            GameObject arrowInstance = Instantiate(arrowShot, transform.position, Quaternion.identity);
         }
         isHoldingKey = false;
     }

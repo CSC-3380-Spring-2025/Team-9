@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 1110746044550373066}
   m_Layer: 8
   m_Name: SpiderTest
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
