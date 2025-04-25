@@ -19,7 +19,7 @@ MonoBehaviour:
   _stackable: 1
   _image: {fileID: -4730911684715715280, guid: b8e633f07da229f468ff378f15e181da, type: 3}
   maxStackNum: 16
-  stackSize: 2
-  maxArrowVelocity: 30
+  stackSize: 14
+  maxArrowVelocity: 20
   arrowDirection: {x: 0, y: 0}
   damage: 20
