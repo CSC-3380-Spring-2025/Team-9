@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 142740090236381516}
   - component: {fileID: 9160533470255561901}
   - component: {fileID: 5683660131111919391}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: immortalEnemyTest
   m_TagString: Immortal
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4920356855011844655}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: immortalEnemyAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

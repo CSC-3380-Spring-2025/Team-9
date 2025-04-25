@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e5e25e72dd2b69a49941a76991acd320
+guid: 11a5e715e3d283b47836c1bd9a33b40f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 535341330891931476
-    second: Floor tile_0
+      213: 6382865779325743107
+    second: SmallSpider_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 160
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Floor tile_0
+      name: SmallSpider_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 45ff565aa1aed6700800000000000000
-      internalID: 535341330891931476
+      spriteID: d6766fa5e2e05bf40897816070d7b783
+      internalID: -162677448
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a5cf1d482020ed54a9b49fc92d8f1e02
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Floor tile_0: 535341330891931476
+      SmallSpider_0: -162677448
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

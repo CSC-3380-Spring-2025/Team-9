@@ -17,9 +17,9 @@ MonoBehaviour:
   _actionType: 1
   _range: {x: 5, y: 4}
   _stackable: 1
-  _image: {fileID: 343811025, guid: 69d278086ddbf194999be5c2d6c88e9a, type: 3}
+  _image: {fileID: -4730911684715715280, guid: b8e633f07da229f468ff378f15e181da, type: 3}
   maxStackNum: 16
-  stackSize: 0
-  maxArrowVelocity: 30
+  stackSize: 14
+  maxArrowVelocity: 20
   arrowDirection: {x: 0, y: 0}
   damage: 20

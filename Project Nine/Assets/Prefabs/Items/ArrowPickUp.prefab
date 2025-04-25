@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: -1193891975
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.7962136, a: 1}
+  m_Sprite: {fileID: -4730911684715715280, guid: b8e633f07da229f468ff378f15e181da, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -138,4 +138,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 11400000, guid: 19e3ca8f2056bf441a1a1d6de1a46657, type: 2}
-  arrowEquipedPrefab: {fileID: 7784043769484360586, guid: d3e9198a7466fe44aa6766405c463c54, type: 3}

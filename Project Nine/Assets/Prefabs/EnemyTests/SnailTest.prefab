@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2258552211256025270}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: snailAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1777244260089928548}
   - component: {fileID: 2482513789147234789}
   - component: {fileID: 8207506486897977272}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: SnailTest
   m_TagString: Snail
   m_Icon: {fileID: 0}
@@ -114,8 +114,8 @@ SpriteRenderer:
   m_SortingLayerID: -1193891975
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.4339623, g: 0.33192128, b: 0.063456744, a: 1}
+  m_Sprite: {fileID: 3553853051162751769, guid: acb2b6c89b46fff47b350172cc635656, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

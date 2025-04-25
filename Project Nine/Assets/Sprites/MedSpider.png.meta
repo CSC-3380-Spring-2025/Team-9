@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b8e633f07da229f468ff378f15e181da
+guid: 80e5ea9f47c4fd84b8ce65111400d25e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4730911684715715280
-    second: Arrow (1)_0
+      213: 6350028514622753040
+    second: MedSpider_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Arrow (1)_0
+      name: MedSpider_0
       rect:
         serializedVersion: 2
         x: 0
@@ -139,10 +139,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 03566c063ec685eb0800000000000000
-      internalID: -4730911684715715280
+      spriteID: 02bf07323be5513499412a1b96838d42
+      internalID: 108663935
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b89ffd7a734ed5b4c90cab06c0f13931
+    spriteID: fb218e9803e92054da608dc8c5d7e557
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Arrow (1)_0: -4730911684715715280
+      MedSpider_0: 108663935
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

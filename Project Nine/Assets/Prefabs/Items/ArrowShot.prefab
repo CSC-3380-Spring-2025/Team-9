@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8645810467289726569}
   - component: {fileID: -7039009743289476685}
   - component: {fileID: -3011055533861501440}
-  - component: {fileID: 1771599760502728812}
   - component: {fileID: 1470698797104354337}
+  - component: {fileID: 3352942593560895629}
   m_Layer: 11
   m_Name: ArrowShot
   m_TagString: Untagged
@@ -107,7 +107,7 @@ SpriteRenderer:
   m_SortingLayerID: -1193891975
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 734599774, guid: 69d278086ddbf194999be5c2d6c88e9a, type: 3}
+  m_Sprite: {fileID: 1995224975, guid: 48d0694374354524ca6105ce92f03267, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,8 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowData: {fileID: 11400000, guid: 19e3ca8f2056bf441a1a1d6de1a46657, type: 2}
---- !u!58 &1771599760502728812
-CircleCollider2D:
+--- !u!70 &1470698797104354337
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -161,14 +161,15 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0181036, y: -0.33853722}
-  m_Radius: 0.21491337
---- !u!70 &1470698797104354337
-CapsuleCollider2D:
+  m_Offset: {x: 0.010274875, y: -0.35838398}
+  m_Size: {x: 0.47652256, y: 0.24335864}
+  m_Direction: 1
+--- !u!58 &3352942593560895629
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -201,6 +202,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.010274875, y: -0.35838398}
-  m_Size: {x: 0.47652256, y: 0.24335864}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.3

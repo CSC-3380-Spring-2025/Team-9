@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b8e633f07da229f468ff378f15e181da
+guid: 48d0694374354524ca6105ce92f03267
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4730911684715715280
-    second: Arrow (1)_0
+      213: 1337624844925652198
+    second: FiredArrow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Arrow (1)_0
+      name: FiredArrow_0
       rect:
         serializedVersion: 2
         x: 0
@@ -139,10 +139,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 03566c063ec685eb0800000000000000
-      internalID: -4730911684715715280
+      spriteID: 17f3f58d835b7d348af3eef7a5cb16ad
+      internalID: 1995224975
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b89ffd7a734ed5b4c90cab06c0f13931
+    spriteID: 9eb3bb15f0e6b2e46a4b8e2a920bc261
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Arrow (1)_0: -4730911684715715280
+      FiredArrow_0: 1995224975
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
