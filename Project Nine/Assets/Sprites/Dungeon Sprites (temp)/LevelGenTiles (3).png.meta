@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2615ee2e783ab874abc52dee7345cce1
+guid: 6913c31734eb80743bbff31d953ebb54
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7856493677412862020
-    second: Bow_0
+      213: -8787111245543293473
+    second: LevelGenTiles (3)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +126,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bow_0
+      name: LevelGenTiles (3)_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 9
-        width: 151
-        height: 151
+        x: 0
+        y: 160
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cb734b930a028f290800000000000000
-      internalID: -7856493677412862020
+      spriteID: 1556f7149cdd3c64b8e051537852fe3d
+      internalID: -159884924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelGenTiles (3)_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b7dc0bd6dfdaff4ba4e5258f4b3148a
+      internalID: -585499397
       vertices: []
       indices: 
       edges: []
@@ -151,7 +173,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c964574f73dc39b4b9ea6ac2e013a458
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +183,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bow_0: -7856493677412862020
+      LevelGenTiles (3)_0: -159884924
+      LevelGenTiles (3)_1: -585499397
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
