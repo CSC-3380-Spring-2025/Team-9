@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2258552211256025270}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: snailAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1777244260089928548}
   - component: {fileID: 2482513789147234789}
   - component: {fileID: 8207506486897977272}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: SnailTest
   m_TagString: Snail
   m_Icon: {fileID: 0}

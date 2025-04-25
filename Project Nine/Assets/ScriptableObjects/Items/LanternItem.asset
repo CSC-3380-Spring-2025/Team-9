@@ -17,5 +17,5 @@ MonoBehaviour:
   _actionType: 2
   _range: {x: 5, y: 4}
   _stackable: 0
-  _image: {fileID: 191740004, guid: 69d278086ddbf194999be5c2d6c88e9a, type: 3}
+  _image: {fileID: 9120274773078298782, guid: bced7cc154ba698409c1c437e39fa5ea, type: 3}
   dmg: 0
