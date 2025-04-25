@@ -60,121 +60,112 @@ public class Walker1x1ChunkLevel
     }
     private void ExtraHallway()
     {
-        if(extra.chunkDirection == start.chunkDirection)
+        foreach (WalkerRoom1x1 roomEx in extra.roomList)
         {
-            foreach (WalkerRoom1x1 roomEx in extra.roomList)
+            foreach (WalkerRoom1x1 roomP in pivot.roomList)
             {
-                foreach (WalkerRoom1x1 roomS in start.roomList)
-                {
-                    Vector2[] offset ={
+                Vector2[] offset ={
                     new Vector2(1,0),
                     new Vector2(0,1),
                     new Vector2(-1,0),
                     new Vector2(0,-1),};
-                    foreach (Vector2 vector in offset)
+                foreach (Vector2 vector in offset)
+                {
+                    if (roomEx.roomPos + vector == roomP.roomPos)
                     {
-                        if (roomEx.roomPos + vector == roomS.roomPos)
+                        if (vector == Vector2.up)
                         {
-                            if (vector == Vector2.up)
-                            {
-                                roomEx.GenerateHallTopToBottom(roomS);
-                                return;
-                            }
-                            if (vector == Vector2.down)
-                            {
-                                roomEx.GenerateHallBottomToTop(roomS);
-                                return;
-                            }
-                            if (vector == Vector2.left)
-                            {
-                                roomEx.GenerateHallLeftToRight(roomS);
-                                return;
-                            }
-                            if (vector == Vector2.right)
-                            {
-                                roomEx.GenerateHallRightToLeft(roomS);
-                                return;
-                            }
+                            roomEx.GenerateHallTopToBottom(roomP);
+                            return;
+                        }
+                        if (vector == Vector2.down)
+                        {
+                            roomEx.GenerateHallBottomToTop(roomP);
+                            return;
+                        }
+                        if (vector == Vector2.left)
+                        {
+                            roomEx.GenerateHallLeftToRight(roomP);
+                            return;
+                        }
+                        if (vector == Vector2.right)
+                        {
+                            roomEx.GenerateHallRightToLeft(roomP);
+                            return;
                         }
                     }
                 }
             }
         }
-        else if (extra.chunkDirection == end.chunkDirection)
+        foreach (WalkerRoom1x1 roomEx in extra.roomList)
         {
-            foreach (WalkerRoom1x1 roomEx in extra.roomList)
+            foreach (WalkerRoom1x1 roomS in start.roomList)
             {
-                foreach (WalkerRoom1x1 roomE in end.roomList)
-                {
-                    Vector2[] offset ={
+                Vector2[] offset ={
                     new Vector2(1,0),
                     new Vector2(0,1),
                     new Vector2(-1,0),
                     new Vector2(0,-1),};
-                    foreach (Vector2 vector in offset)
+                foreach (Vector2 vector in offset)
+                {
+                    if (roomEx.roomPos + vector == roomS.roomPos)
                     {
-                        if (roomEx.roomPos + vector == roomE.roomPos)
+                        if (vector == Vector2.up)
                         {
-                            if (vector == Vector2.up)
-                            {
-                                roomEx.GenerateHallTopToBottom(roomE);
-                                return;
-                            }
-                            if (vector == Vector2.down)
-                            {
-                                roomEx.GenerateHallBottomToTop(roomE);
-                                return;
-                            }
-                            if (vector == Vector2.left)
-                            {
-                                roomEx.GenerateHallLeftToRight(roomE);
-                                return;
-                            }
-                            if (vector == Vector2.right)
-                            {
-                                roomEx.GenerateHallRightToLeft(roomE);
-                                return;
-                            }
+                            roomEx.GenerateHallTopToBottom(roomS);
+                            return;
+                        }
+                        if (vector == Vector2.down)
+                        {
+                            roomEx.GenerateHallBottomToTop(roomS);
+                            return;
+                        }
+                        if (vector == Vector2.left)
+                        {
+                            roomEx.GenerateHallLeftToRight(roomS);
+                            return;
+                        }
+                        if (vector == Vector2.right)
+                        {
+                            roomEx.GenerateHallRightToLeft(roomS);
+                            return;
                         }
                     }
                 }
             }
         }
-        else
+        foreach (WalkerRoom1x1 roomEx in extra.roomList)
         {
-            foreach (WalkerRoom1x1 roomEx in extra.roomList)
+            foreach (WalkerRoom1x1 roomE in end.roomList)
             {
-                foreach (WalkerRoom1x1 roomP in pivot.roomList)
-                {
-                    Vector2[] offset ={
+                Vector2[] offset ={
                     new Vector2(1,0),
                     new Vector2(0,1),
                     new Vector2(-1,0),
                     new Vector2(0,-1),};
-                    foreach (Vector2 vector in offset)
+                foreach (Vector2 vector in offset)
+                {
+                    if (roomEx.roomPos + vector == roomE.roomPos)
                     {
-                        if (roomEx.roomPos + vector == roomP.roomPos)
+                        if (vector == Vector2.up)
                         {
-                            if (vector == Vector2.up)
-                            {
-                                roomEx.GenerateHallTopToBottom(roomP);
-                                return;
-                            }
-                            if (vector == Vector2.down)
-                            {
-                                roomEx.GenerateHallBottomToTop(roomP);
-                                return;
-                            }
-                            if (vector == Vector2.left)
-                            {
-                                roomEx.GenerateHallLeftToRight(roomP);
-                                return;
-                            }
-                            if (vector == Vector2.right)
-                            {
-                                roomEx.GenerateHallRightToLeft(roomP);
-                                return;
-                            }
+                            roomEx.GenerateHallTopToBottom(roomE);
+                            return;
+                        }
+                        if (vector == Vector2.down)
+                        {
+                            roomEx.GenerateHallBottomToTop(roomE);
+                            return;
+                        }
+                        if (vector == Vector2.left)
+                        {
+                            roomEx.GenerateHallLeftToRight(roomE);
+                            return;
+                        }
+                        if (vector == Vector2.right)
+                        {
+                            roomEx.GenerateHallRightToLeft(roomE);
+                            return;
                         }
                     }
                 }
