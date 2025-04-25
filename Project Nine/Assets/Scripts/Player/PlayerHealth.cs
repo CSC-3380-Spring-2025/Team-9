@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,6 +22,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable<DamageData>
         {
             Die();
         }
+        StartCoroutine(DisableCollisionWithEnemy());
     }
     private int CalculateDamage(DamageData damage)
     {
@@ -52,5 +54,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable<DamageData>
 
     }
 
+   IEnumerator DisableCollisionWithEnemy()
+   {
+
+    gameObject.layer = 12;
+    yield return new WaitForSeconds(5);
+
+    gameObject.layer = 7;
+   }
 
 }
