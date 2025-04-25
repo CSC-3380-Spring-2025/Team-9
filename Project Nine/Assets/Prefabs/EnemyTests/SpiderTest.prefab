@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 8308478099972415221}
   - component: {fileID: 1977783002882608260}
   - component: {fileID: 1110746044550373066}
+  - component: {fileID: -7775761787740702946}
   m_Layer: 8
   m_Name: SpiderTest
   m_TagString: Spider
@@ -220,7 +221,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 25.359, y: -18.3915, z: 0}
-  m_LocalScale: {x: 3.9816003, y: 4.08119, z: 1.3272}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1180744472803679713}
@@ -255,7 +256,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: c6830cdfdc7444b44980161fae2cd399, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -276,8 +277,8 @@ SpriteRenderer:
   m_SortingLayerID: -1193891975
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.1981132, g: 0.092515126, b: 0.092515126, a: 1}
+  m_Sprite: {fileID: 3302823728722084790, guid: b15a2b62b70a2d64cac88a40c4bccafb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -345,8 +346,9 @@ MonoBehaviour:
   damageType: 0
   criticalChance: 10
   speed: 0
-  healthPoints: 10
-  currentHealthPoints: 0
+  _flashCoroutine: {fileID: -7775761787740702946}
+  healthPoints: 43
+  currentHealthPoints: 33
   childrenSpawnPoints:
   - {fileID: 1180744472803679713}
   - {fileID: 3814018781864135094}
@@ -457,6 +459,20 @@ MonoBehaviour:
   player: {fileID: 0}
   endReachedDist: 3
   distanceThreshold: 8
+--- !u!114 &-7775761787740702946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756125477986392363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce315dc0fa6d234bbf7d41d5c1b1512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  _flashTime: 0.25
 --- !u!1 &9201076596837328025
 GameObject:
   m_ObjectHideFlags: 0

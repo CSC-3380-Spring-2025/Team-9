@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngineInternal;
+
 
 public class ArrowShot : MonoBehaviour
 {
@@ -21,28 +21,51 @@ public class ArrowShot : MonoBehaviour
     {
         
     }
-    void OnTriggerStay2D(Collider2D collision)
+    // void OnTriggerStay2D(Collider2D collision)
+    // {
+    //     GameObject type = collision.gameObject;
+    //     switch (collision.tag)
+    //     {
+    //         case "Wall":
+    //             rbArrow.linearVelocity = Vector2.zero;
+    //             Destroy(gameObject);
+    //             break;
+    //         case "Snail":
+    //             Destroy(gameObject);
+    //             break;
+    //         case "Immortal":
+    //             Destroy(gameObject);
+    //             break;
+    //         case "Spider":
+    //             Spider spider = type.GetComponent<Spider>();
+    //             spider.TakeDamage(arrowData.damage);
+    //             Destroy(gameObject);
+    //             break;
+    //         case "Boss":
+    //             BossHealth boss = type.GetComponent<BossHealth>();
+    //             boss.TakeDamage(arrowData.damage);
+    //             Destroy(gameObject);
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // }
+
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject type = collision.gameObject;
-        switch (collision.tag)
+        switch (LayerMask.LayerToName(type.layer))
         {
             case "Wall":
+                AttachToTarget(collision.transform);
                 Destroy(gameObject);
                 break;
-            case "Snail":
+            case "ImmortalEnemy":
                 Destroy(gameObject);
                 break;
-            case "Immortal":
-                Destroy(gameObject);
-                break;
-            case "Spider":
-                Spider spider = type.GetComponent<Spider>();
-                spider.TakeDamage(arrowData.damage);
-                Destroy(gameObject);
-                break;
-            case "Boss":
-                BossHealth boss = type.GetComponent<BossHealth>();
-                boss.TakeDamage(arrowData.damage);
+            case "Enemy":
+                var enemy = type.GetComponent<IDamageable<int>>();
+                enemy.TakeDamage(arrowData.damage);
                 Destroy(gameObject);
                 break;
             default:
@@ -61,5 +84,13 @@ public class ArrowShot : MonoBehaviour
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mouseWorldPos - (Vector2)player.transform.position).normalized;
         rbArrow.linearVelocity = direction * arrowData.maxArrowVelocity;
+    }
+
+
+    void AttachToTarget(Transform target)
+    {
+        rbArrow.linearVelocity = Vector2.zero;
+        rbArrow.bodyType = RigidbodyType2D.Kinematic;
+        transform.SetParent(target);
     }
 }
