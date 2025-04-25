@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Spider : MortalEnemy, IDamageable<int>
 {
-   // private bool isBigSpider = true;
+
     public Transform[] childrenSpawnPoints; 
 
     public GameObject spiderPrefab;
@@ -20,6 +20,7 @@ public class Spider : MortalEnemy, IDamageable<int>
 
 
     int radius = 2; // distance from center of spider to spawn children
+    
     // the radius should also depend on the new size of the spider
 
 // i should do something different for the scaling factor
@@ -36,29 +37,7 @@ public class Spider : MortalEnemy, IDamageable<int>
     void Start()
     {
         currentHealthPoints = healthPoints;
-
-
-        // the following will eventually be moved to a function of its own
-        //Time.timeScale = 0.2f;
-        // float radians = Mathf.PI / 4;
-        // while (n > 0 && generations > 0)
-        // {
-        // //     GameObject childEmpty = new GameObject($"SpiderSon {n}");
-        // // childEmpty.transform.SetParent(transform);
-        // Vector3 parentPos = transform.position;  
-        // Vector3 babySpiderPos =  new Vector3(parentPos.x + (radius*Mathf.Cos(radians)), parentPos.y + radius*Mathf.Sin(radians), parentPos.z);
       
-        // Debug.Log("the transform of the empty child is: " + babySpiderPos);
-        // GameObject childSpider = Instantiate(spiderPrefab, babySpiderPos , Quaternion.identity);
-        // Vector3 scale = childSpider.transform.localScale;
-        // childSpider.transform.localScale = new Vector3(scale.x/2f, scale.y/2f, scale.z);
-        // childSpider.GetComponent<Spider>().generations = generations -1; 
-        // childSpider.GetComponent<Spider>().radius = radius - 1; 
-        
-        // n--;
-        // radians += Mathf.PI / 2;
-        // }
-        // Destroy(gameObject, 5);
     }
 
     void SpawnOffspringFromCode()
@@ -73,18 +52,19 @@ public class Spider : MortalEnemy, IDamageable<int>
         Vector3 parentPos = transform.position;  
         Vector3 babySpiderPos =  new Vector3(parentPos.x + (radius*Mathf.Cos(radians)), parentPos.y + radius*Mathf.Sin(radians), parentPos.z);
       
-        Debug.Log("the transform of the empty child is: " + babySpiderPos);
+       
         GameObject childSpider = Instantiate(spiderPrefab, babySpiderPos , Quaternion.identity);
         Vector3 scale = childSpider.transform.localScale;
         childSpider.transform.localScale = new Vector3(scale.x/2f, scale.y/2f, scale.z);
         childSpider.GetComponent<Spider>().generations = generations -1; 
         childSpider.GetComponent<Spider>().radius = radius - 1; 
+        childSpider.GetComponent<Spider>().enemyAttackRange = enemyAttackRange - 1;  // i need this radius to be something more accurate
         
         
         n--;
         radians += Mathf.PI / 2;
         }
-        Destroy(gameObject, 5); // this should be commented out. this isjust for ease of testing right now
+        //Destroy(gameObject, 5); // this should be commented out. this isjust for ease of testing right now
     }
 
     void SpawnOffspring() // method using transforms. this function would then be called inside the Die method. 

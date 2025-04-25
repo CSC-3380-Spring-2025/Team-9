@@ -119,12 +119,23 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &18364782
 GameObject:
+=======
+--- !u!1 &6218125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7756125477986392363, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
+  m_PrefabInstance: {fileID: 509856698}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6218135
+MonoBehaviour:
+>>>>>>> adc99e475503d309faf0ac1216abe3dd00bf0abb
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 18364784}
@@ -248,6 +259,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+  m_GameObject: {fileID: 6218125}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce315dc0fa6d234bbf7d41d5c1b1512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  _flashTime: 0.25
+>>>>>>> adc99e475503d309faf0ac1216abe3dd00bf0abb
 --- !u!224 &100223662 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5104505908649661450, guid: 2b4812a03ffddd849881ef20f7b264ba, type: 3}
@@ -755,13 +776,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7775761787740702946, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
+      propertyPath: _flashColor.b
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -7775761787740702946, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
+      propertyPath: _flashColor.g
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -7775761787740702946, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
+      propertyPath: _flashColor.r
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165379485520962619, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165379485520962619, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165379485520962619, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1165379485520962619, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.8
+      value: 12.96
       objectReference: {fileID: 0}
     - target: {fileID: 1165379485520962619, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.7
+      value: -13.79
       objectReference: {fileID: 0}
     - target: {fileID: 1165379485520962619, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -795,6 +840,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5047333072086812228, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3302823728722084790, guid: b15a2b62b70a2d64cac88a40c4bccafb, type: 3}
     - target: {fileID: 7756125477986392363, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
       propertyPath: m_Name
       value: SpiderTest
@@ -802,7 +851,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7756125477986392363, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6218135}
   m_SourcePrefab: {fileID: 100100000, guid: e234cfebf4f8f314eab3134f1641b86d, type: 3}
 --- !u!1 &539595791 stripped
 GameObject:
@@ -116252,7 +116304,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -117020,6 +117072,55 @@ Transform:
   - {fileID: 448113651}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2064650250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2064650252}
+  - component: {fileID: 2064650251}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2064650251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064650250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: b5c4483ee2ab5774d8ea801200b3ce95, type: 2}
+--- !u!4 &2064650252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064650250}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2085799173 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9114278265903968285, guid: d4c27a79b8bb8a0428772662e7581ed2, type: 3}
@@ -117456,4 +117557,8 @@ SceneRoots:
   - {fileID: 715582170}
   - {fileID: 509856698}
   - {fileID: 1919346322958597846}
+<<<<<<< HEAD
   - {fileID: 18364784}
+=======
+  - {fileID: 2064650252}
+>>>>>>> adc99e475503d309faf0ac1216abe3dd00bf0abb

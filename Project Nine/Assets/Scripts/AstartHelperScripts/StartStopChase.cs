@@ -1,4 +1,5 @@
 using Pathfinding;
+using Unity.Hierarchy;
 using UnityEngine;
 
 // switch between states of patrolling and chasing based on proximity from player
@@ -12,6 +13,7 @@ public class StartStopChase : MonoBehaviour
     private bool isPatrolling;
     private bool isChasing;
     private bool isAtDestination; // used to determine if it has reached player so that it doesn't ram him into the wall
+    private GameObject baseGO; // base to patrol. Later could be an array of gmaeobjects for the enemy to move to and from
 
     
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -82,11 +84,20 @@ public class StartStopChase : MonoBehaviour
 
     void makeHomeBase()
     {
-        GameObject baseGO = new GameObject();
+        baseGO = new GameObject();
+        GameObject baseParent = GameObject.Find("Bases");
+        baseGO.transform.SetParent(baseParent.transform);
+
         baseGO.transform.position = transform.position;
         patrolScript.targets[0] = baseGO.transform;
 
 
    }
+
+    void OnDestroy()
+    {
+        
+        Destroy(baseGO);
+    }
 
 }
