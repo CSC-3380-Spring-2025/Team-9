@@ -129,10 +129,10 @@ TextureImporter:
       name: Arrow (1)_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 9
-        width: 151
-        height: 151
+        x: 0
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b89ffd7a734ed5b4c90cab06c0f13931
     internalID: 0
     vertices: []
     indices: 

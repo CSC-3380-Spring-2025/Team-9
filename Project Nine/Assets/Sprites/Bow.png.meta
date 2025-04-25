@@ -129,10 +129,10 @@ TextureImporter:
       name: Bow_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 9
-        width: 151
-        height: 151
+        x: 0
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 723bb4dd630196c45be1eb45e5c5caab
     internalID: 0
     vertices: []
     indices: 

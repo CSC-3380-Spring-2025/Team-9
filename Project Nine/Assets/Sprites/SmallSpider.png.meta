@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bced7cc154ba698409c1c437e39fa5ea
+guid: 11a5e715e3d283b47836c1bd9a33b40f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9120274773078298782
-    second: Lantern_0
+      213: 6382865779325743107
+    second: SmallSpider_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lantern_0
+      name: SmallSpider_0
       rect:
         serializedVersion: 2
         x: 0
@@ -139,10 +139,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e90d947b599b19e70800000000000000
-      internalID: 9120274773078298782
+      spriteID: d6766fa5e2e05bf40897816070d7b783
+      internalID: -162677448
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2bb2179d24f40c04c9a4a65b15691a2b
+    spriteID: a5cf1d482020ed54a9b49fc92d8f1e02
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lantern_0: 9120274773078298782
+      SmallSpider_0: -162677448
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
