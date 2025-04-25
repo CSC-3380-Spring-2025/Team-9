@@ -86,12 +86,14 @@ public class StartStopChase : MonoBehaviour
     {
         baseGO = new GameObject();
         GameObject baseParent = GameObject.Find("Bases");
+        if (baseParent == null)
+        {
+            baseParent = new GameObject("Bases");
+        }
         baseGO.transform.SetParent(baseParent.transform);
 
         baseGO.transform.position = transform.position;
         patrolScript.targets[0] = baseGO.transform;
-
-
    }
 
     void OnDestroy()
