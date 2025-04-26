@@ -1,83 +1,91 @@
 
+using System.Linq;
+using Pathfinding;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 
 public class Spider : MortalEnemy, IDamageable<int>
 {
-
-    public Transform[] childrenSpawnPoints; 
+   // public Transform[] childrenSpawnPoints; 
 
     public GameObject spiderPrefab;
+    public GameObject MediumSpiderPrefab;
+    public GameObject SmallSpiderPrefab;
+    private SpiderSize spiderSize = SpiderSize.BigSpider;
+    private GameObject childSpider;
+    public AILerp aiLerpScript;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    // i could create an empty game object, set it as child of the gameobject that holds this script
-    // create n of these, then place them in aircle around the spide. so this is the number of spiders
-    int n = 4;
+    int n = 4; // number of children to spaawn
+   // int generations = 2; // how many times the original spider will spawn offspring when dying. not needed anymore
+    int radius = 2; // distance from center of spider to spawn children at the beginning
 
-    int generations = 2; // how many times the original spider will spawn offspring when dying 
-
-
-    int radius = 2; // distance from center of spider to spawn children
-    
-    // the radius should also depend on the new size of the spider
-
-// i should do something different for the scaling factor
-
-
-// as of now the spanwFromCode functions spawns the enemies around the circle, and i need them to spawn inside the circle and at somewhat random points so
-// they don't look too repetitive.
-// so i would have to make the radius(distance from center of origin enemy to child enemy smaller) and make it random and make the angle in radians random
-/// as well 
-/// 
-///  and i should probably figure out a better scaling factor.
-/// i don't think i will be using the isBigSpider variable anymore.
-
+    void Awake()
+    {
+        
+        aiLerpScript = GetComponent<AILerp>();
+    }
     void Start()
     {
         currentHealthPoints = healthPoints;
-      
     }
 
     void SpawnOffspringFromCode()
     {
-        float radians = Random.Range(0f, 2*Mathf.PI);
+        float radians = Random.Range(0f, 2*Mathf.PI); // maybe it would look better if these were inside the while loop
         float newradius = Random.Range(0f, radius);
-        //float radians = Mathf.PI / 4;
-        while (n > 0 && generations > 0)
+     
+        while (n > 0 && spiderSize > SpiderSize.SmallSpider)
         {
-        //     GameObject childEmpty = new GameObject($"SpiderSon {n}");
-        // childEmpty.transform.SetParent(transform);
-        Vector3 parentPos = transform.position;  
-        Vector3 babySpiderPos =  new Vector3(parentPos.x + (radius*Mathf.Cos(radians)), parentPos.y + radius*Mathf.Sin(radians), parentPos.z);
-      
-       
-        GameObject childSpider = Instantiate(spiderPrefab, babySpiderPos , Quaternion.identity);
-        Vector3 scale = childSpider.transform.localScale;
-        childSpider.transform.localScale = new Vector3(scale.x/2f, scale.y/2f, scale.z);
-        childSpider.GetComponent<Spider>().generations = generations -1; 
-        childSpider.GetComponent<Spider>().radius = radius - 1; 
-        childSpider.GetComponent<Spider>().enemyAttackRange = enemyAttackRange - 1;  // i need this radius to be something more accurate
-        
-        
-        n--;
-        radians += Mathf.PI / 2;
+            Vector3 parentPos = transform.position;  
+            Vector3 babySpiderPos =  new Vector3(parentPos.x + (radius*Mathf.Cos(radians)), parentPos.y + radius*Mathf.Sin(radians), parentPos.z);
+            //GameObject childSpider = Instantiate(spiderPrefab, babySpiderPos , Quaternion.identity);
+            //Vector3 scale = childSpider.transform.localScale;
+            // childSpider.transform.localScale = new Vector3(scale.x/2f, scale.y/2f, scale.z);
+
+            // if size of current spider is BigSpider, set children to be medium spider, if size is medium spider then set chilren to be small spider
+            if (spiderSize == SpiderSize.BigSpider)
+            {
+                
+                childSpider = Instantiate(MediumSpiderPrefab, babySpiderPos , Quaternion.identity);
+                childSpider.GetComponent<Spider>().spiderSize = SpiderSize.MediumSpider;
+            }
+            else if (spiderSize == SpiderSize.MediumSpider)
+            {
+                childSpider = Instantiate(SmallSpiderPrefab, babySpiderPos , Quaternion.identity);
+                childSpider.GetComponent<Spider>().spiderSize = SpiderSize.SmallSpider;
+            }
+            
+            if (childSpider != null)
+            {
+                //childSpider.GetComponent<Spider>().generations = generations -1; 
+                childSpider.GetComponent<Spider>().radius = radius - 1; 
+                childSpider.GetComponent<Spider>().enemyAttackRange = enemyAttackRange - 1;  // i need this radius to be something more accurate
+                childSpider.GetComponent<Spider>().SetSpeed(); // set a random speed to each child instance
+            }
+            else
+            {
+                Debug.LogWarning("childSpider is null. Did you set assign the prefabs?");
+                Debug.Log("Spider size is set to : " + spiderSize.ToString());
+            }
+            
+            n--;
+            radians += Mathf.PI / 2;
         }
-        //Destroy(gameObject, 5); // this should be commented out. this isjust for ease of testing right now
     }
 
-    void SpawnOffspring() // method using transforms. this function would then be called inside the Die method. 
-    {
-        foreach (Transform babySpiderPos in childrenSpawnPoints) // here babySpiderPos is a transform instead of a vector3.
-        {
-            GameObject childSpider = Instantiate(spiderPrefab, babySpiderPos.position, Quaternion.identity);
-            Vector3 scale = childSpider.transform.localScale;
-            childSpider.transform.localScale = new Vector3(scale.x/2f, scale.y/2f, scale.z);
-            childSpider.GetComponent<Spider>().generations = generations -1; 
-            //childSpider.GetComponent<Spider>().radius = radius - 1; 
-        }
-    }
+    // void SpawnOffspring() // method using transforms. this function would then be called inside the Die method. 
+    // {
+    //     foreach (Transform babySpiderPos in childrenSpawnPoints) // here babySpiderPos is a transform instead of a vector3.
+    //     {
+    //         GameObject childSpider = Instantiate(spiderPrefab, babySpiderPos.position, Quaternion.identity);
+    //         Vector3 scale = childSpider.transform.localScale;
+    //         childSpider.transform.localScale = new Vector3(scale.x/2f, scale.y/2f, scale.z);
+    //         childSpider.GetComponent<Spider>().generations = generations -1; 
+    //     }
+    // }
 
 
     override public void Die() 
@@ -89,4 +97,21 @@ public class Spider : MortalEnemy, IDamageable<int>
         SpawnOffspringFromCode();
         Destroy(gameObject);
     }
+
+    void SetSpeed()
+    {
+        float speedAI = Random.Range(20, 30) / 10;
+        aiLerpScript.speed = speedAI;
+    }
+
+
+}
+
+public  enum SpiderSize
+{
+    SmallSpider,
+    MediumSpider,
+    BigSpider,
+
+
 }
