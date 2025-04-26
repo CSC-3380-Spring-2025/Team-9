@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour, IDamageable<DamageData>
 {
+    [SerializeField] private FlashDamage _flashDamage;
     public int healthPoints = 100;//max health that you start with
     public int currentHealthPoints;//variable health from damage and healing
     private bool isDead = false;
@@ -18,6 +19,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable<DamageData>
     {
         int calculatedDamage = CalculateDamage(damage);
         currentHealthPoints = Mathf.Max(currentHealthPoints - calculatedDamage, 0); //Prevent negative health
+        _flashDamage.CallDamageFlashCorroutine();
         if (currentHealthPoints <= 0)//calls "Die" method to kill the player
         {
             Die();

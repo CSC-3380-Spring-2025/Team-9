@@ -257,7 +257,6 @@ MonoBehaviour:
   _flashCoroutine: {fileID: 1368356790178277100}
   healthPoints: 43
   currentHealthPoints: 33
-  spriteRenderer: {fileID: 0}
   spiderPrefab: {fileID: 6312551588087136332}
   MediumSpiderPrefab: {fileID: 6312551588087136332}
   SmallSpiderPrefab: {fileID: 3656388312482830793, guid: 90e2cdfad13ad114aa8ed123ac71f57f, type: 3}
@@ -362,7 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  endReachedDist: 0.8
+  endReachedDist: 1.2
   distanceThreshold: 8
 --- !u!114 &1368356790178277100
 MonoBehaviour:

@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAttackPoint: {fileID: 6624545058417770356}
-  enemyAttackRange: 0.33
+  enemyAttackRange: 0.45
   playerLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -257,7 +257,6 @@ MonoBehaviour:
   _flashCoroutine: {fileID: 5964147824148129652}
   healthPoints: 43
   currentHealthPoints: 33
-  spriteRenderer: {fileID: 0}
   spiderPrefab: {fileID: 3656388312482830793}
   MediumSpiderPrefab: {fileID: 6312551588087136332, guid: 22430641a000dbf4c93f25958edee18c, type: 3}
   SmallSpiderPrefab: {fileID: 3656388312482830793}
@@ -362,7 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  endReachedDist: 0.5
+  endReachedDist: 0.9
   distanceThreshold: 8
 --- !u!114 &5964147824148129652
 MonoBehaviour:

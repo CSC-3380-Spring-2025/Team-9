@@ -62,7 +62,6 @@ public class Spider : MortalEnemy, IDamageable<int>
             {
                 //childSpider.GetComponent<Spider>().generations = generations -1; 
                 childSpider.GetComponent<Spider>().radius = radius - 1; 
-                childSpider.GetComponent<Spider>().enemyAttackRange = enemyAttackRange - 1;  // i need this radius to be something more accurate
                 childSpider.GetComponent<Spider>().SetSpeed(); // set a random speed to each child instance
             }
             else
