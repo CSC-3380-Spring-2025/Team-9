@@ -22,12 +22,12 @@ public class StartStopChase : MonoBehaviour
 
         player = GameObject.FindWithTag("Player").transform;
         
-        patrolScript =  GetComponent<Patrol>();
-        aiDestScript = GetComponent<AIDestinationSetter>();
+        patrolScript =  gameObject.GetComponent<Patrol>();
+        aiDestScript = gameObject.GetComponent<AIDestinationSetter>();
 
         aiDestScript.target = player;
-        makeHomeBase();
         StartPatrol();
+        MakeHomeBase();
     }
 
     // Update is called once per frame
@@ -67,7 +67,8 @@ public class StartStopChase : MonoBehaviour
     void StartPatrol()
     {       
         gameObject.GetComponent<AIDestinationSetter>().enabled = false;
-        gameObject.GetComponent<Patrol>().enabled = true;
+        if (patrolScript.enabled == false) gameObject.GetComponent<Patrol>().enabled = true;
+    
         isPatrolling = true;
         isChasing = false;
         isAtDestination = false;
@@ -82,7 +83,7 @@ public class StartStopChase : MonoBehaviour
         isAtDestination = true;
     }
 
-    void makeHomeBase()
+    void MakeHomeBase()
     {
         baseGO = new GameObject();
         GameObject baseParent = GameObject.Find("Bases");
@@ -93,7 +94,19 @@ public class StartStopChase : MonoBehaviour
         baseGO.transform.SetParent(baseParent.transform);
 
         baseGO.transform.position = transform.position;
+        
+        patrolScript.targets = new Transform[1]; // initialize array to length of 1 for now
         patrolScript.targets[0] = baseGO.transform;
+
+        if (patrolScript == null)
+        {
+            Debug.Log("gaemobject: " + gameObject.name.ToString() + " has null patrolScript");
+        }
+        else if (baseGO == null)
+        {
+
+            Debug.Log("gaemobject: " + gameObject.name.ToString() + " has null baseGO");
+        }
    }
 
     void OnDestroy()

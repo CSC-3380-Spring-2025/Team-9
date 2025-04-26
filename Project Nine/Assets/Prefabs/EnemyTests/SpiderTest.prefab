@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 1110746044550373066}
   - component: {fileID: -7775761787740702946}
   - component: {fileID: 7692663670724654508}
+  - component: {fileID: 8049977001779895039}
   m_Layer: 8
   m_Name: SpiderTest
   m_TagString: Spider
@@ -162,8 +163,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.010229588, y: 0.19437051}
-  m_Radius: 0.6500399
+  m_Offset: {x: 0.018743038, y: 0.10071981}
+  m_Radius: 0.82031286
 --- !u!114 &4559553408260561632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +323,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 4874585515107073111
+  uniqueID: 9016013340457411013
   updateError: 1
   checkTime: 0.2
+--- !u!50 &8049977001779895039
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756125477986392363}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

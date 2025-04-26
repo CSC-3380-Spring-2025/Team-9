@@ -106,12 +106,12 @@ GameObject:
   - component: {fileID: 8839862192320751181}
   - component: {fileID: 3723276617451062654}
   - component: {fileID: 5076334700421318734}
-  - component: {fileID: 6718582305078842990}
   - component: {fileID: 6362937805285755143}
   - component: {fileID: 1146052134437339052}
   - component: {fileID: 3053038128817965181}
   - component: {fileID: 1368356790178277100}
   - component: {fileID: 623576631865235255}
+  - component: {fileID: -8783203588711053720}
   m_Layer: 8
   m_Name: MediumSpider
   m_TagString: Spider
@@ -260,7 +260,6 @@ MonoBehaviour:
   spiderPrefab: {fileID: 6312551588087136332}
   MediumSpiderPrefab: {fileID: 6312551588087136332}
   SmallSpiderPrefab: {fileID: 3656388312482830793, guid: 90e2cdfad13ad114aa8ed123ac71f57f, type: 3}
-  aiLerpScript: {fileID: 0}
 --- !u!114 &5076334700421318734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,35 +288,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &6718582305078842990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6312551588087136332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 847a14d4dc9cc43679ab34fc78e0182f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 4
-  autoRepath:
-    mode: 2
-    interval: 0.5
-    sensitivity: 10
-    maximumInterval: 2
-    visualizeSensitivity: 0
-  canMove: 1
-  speed: 3
-  orientation: 0
-  enableRotation: 0
-  rotationSpeed: 10
-  interpolatePathSwitches: 1
-  switchPathInterpolationSpeed: 5
-  targetCompatibility: {fileID: 0}
-  repathRateCompatibility: NaN
-  canSearchCompability: 0
 --- !u!114 &6362937805285755143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,9 +360,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 4607550056879429233
+  uniqueID: 3906389752060193827
   updateError: 1
   checkTime: 0.71
+--- !u!50 &-8783203588711053720
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6312551588087136332}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &7024066574611155370
 GameObject:
   m_ObjectHideFlags: 0

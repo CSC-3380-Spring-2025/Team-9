@@ -54,6 +54,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
+    - _Glossiness: 0.5
+    - _Metallic: 0
     - _ZWrite: 0
     - _flashAmount: 0
     m_Colors:
