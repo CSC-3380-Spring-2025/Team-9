@@ -347,8 +347,8 @@ MonoBehaviour:
   criticalChance: 10
   speed: 0
   _flashCoroutine: {fileID: -7775761787740702946}
-  healthPoints: 43
-  currentHealthPoints: 33
+  healthPoints: 30
+  currentHealthPoints: 30
   childrenSpawnPoints:
   - {fileID: 1180744472803679713}
   - {fileID: 3814018781864135094}
