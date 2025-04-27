@@ -1,7 +1,3 @@
-
-using System.Linq;
-using Pathfinding;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -15,17 +11,17 @@ public class Spider : MortalEnemy, IDamageable<int>
     public GameObject SmallSpiderPrefab;
     private SpiderSize spiderSize = SpiderSize.BigSpider;
     private GameObject childSpider;
-    public AILerp aiLerpScript;
+    //public AILerp aiLerpScript;
     
 
     int n = 4; // number of children to spaawn
    // int generations = 2; // how many times the original spider will spawn offspring when dying. not needed anymore
-    int radius = 2; // distance from center of spider to spawn children at the beginning
+    float radius = 0.5f; // distance from center of spider to spawn children at the beginning
 
     void Awake()
     {
         
-        aiLerpScript = GetComponent<AILerp>();
+      //  aiLerpScript = GetComponent<AILerp>();
     }
     void Start()
     {
@@ -61,8 +57,8 @@ public class Spider : MortalEnemy, IDamageable<int>
             if (childSpider != null)
             {
                 //childSpider.GetComponent<Spider>().generations = generations -1; 
-                childSpider.GetComponent<Spider>().radius = radius - 1; 
-                childSpider.GetComponent<Spider>().SetSpeed(); // set a random speed to each child instance
+                childSpider.GetComponent<Spider>().radius = radius - 0.2f; 
+                //childSpider.GetComponent<Spider>().SetSpeed(); // set a random speed to each child instance
             }
             else
             {
@@ -97,11 +93,11 @@ public class Spider : MortalEnemy, IDamageable<int>
         Destroy(gameObject);
     }
 
-    void SetSpeed()
-    {
-        float speedAI = Random.Range(20, 30) / 10;
-        aiLerpScript.speed = speedAI;
-    }
+    // void SetSpeed()
+    // {
+    //     float speedAI = Random.Range(20, 30) / 10;
+    //     aiLerpScript.speed = speedAI;
+    // }
 
 
 }
