@@ -65,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
             Rb.MovePosition(targetPosition); // only move if not touching wall
         }
 
-
     }
 
     private IEnumerator Roll()
@@ -105,6 +104,4 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(startPosition, direction, checkDistance, WallLayer);
         return hit.collider != null;
     }
-
-
 }
