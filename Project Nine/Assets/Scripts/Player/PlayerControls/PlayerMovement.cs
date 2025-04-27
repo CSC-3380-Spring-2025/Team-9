@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
         if (!_isRolling)
         {
             HandleMovementInput();
+            MovePlayer();
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && !_isRolling)
@@ -38,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!_isRolling)
         {
-            MovePlayer();
+            //MovePlayer();
         }
     }
 
