@@ -18,6 +18,6 @@ MonoBehaviour:
   _range: {x: 5, y: 4}
   _stackable: 0
   _image: {fileID: -7856493677412862020, guid: 2615ee2e783ab874abc52dee7345cce1, type: 3}
-  dmg: 10
+  dmg: 15
   maxLoadTime: 2
   bufferTime: 0.25
