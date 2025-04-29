@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MortalEnemy : BaseEnemy, IDamageable<int>
 {
-    [SerializeField] private FlashDamage _flashCoroutine;
+    [SerializeField] protected FlashDamage _flashCoroutine;
     public int healthPoints = 100;//max health that you start with
     public int currentHealthPoints;//variable health from damage and healing
     protected bool isDead = false;
