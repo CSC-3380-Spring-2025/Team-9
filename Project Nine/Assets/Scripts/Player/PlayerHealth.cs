@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable<DamageData>
     public int healthPoints = 100;//max health that you start with
     public int currentHealthPoints;//variable health from damage and healing
     private bool isDead = false;
+
+    public event EventHandler OnPlayerDeath;
 
     void Start()
     {
@@ -48,6 +51,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable<DamageData>
     {
         if (isDead) return;
         isDead = true;
+
+        if (OnPlayerDeath != null) OnPlayerDeath(this, EventArgs.Empty); 
         //before destroying, cease all animations, activity, etc.
         //Game over screen implemented, items lost, etc.
 
@@ -64,5 +69,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable<DamageData>
 
     gameObject.layer = 7;
    }
+
+
+
 
 }
