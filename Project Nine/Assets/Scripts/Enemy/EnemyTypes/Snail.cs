@@ -14,7 +14,7 @@ public class Snail : BaseEnemy // immortal enemy
     {
         Attack(); 
     }
-    void Attack() {
+    new void Attack() {
 
 
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(enemyAttackPoint.position, enemyAttackRange, playerLayers);

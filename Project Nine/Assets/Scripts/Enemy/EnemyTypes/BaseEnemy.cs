@@ -26,7 +26,7 @@ public class BaseEnemy : MonoBehaviour
         
         }
 
-    void Attack() //the method that acts out the attack and it's functions
+    public void Attack() //the method that acts out the attack and it's functions
     {
         
         //detects if enemy is in range of attack, accounting for all variables
