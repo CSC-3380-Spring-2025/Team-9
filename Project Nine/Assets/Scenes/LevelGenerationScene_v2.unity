@@ -303,6 +303,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1840741499370114872, guid: 0c17ad1e13854da4180df4d47c47a0dd, type: 3}
+      propertyPath: MoveSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2748888851157417317, guid: 0c17ad1e13854da4180df4d47c47a0dd, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -314,6 +318,10 @@ PrefabInstance:
     - target: {fileID: 2748888851157417317, guid: 0c17ad1e13854da4180df4d47c47a0dd, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783151737343775792, guid: 0c17ad1e13854da4180df4d47c47a0dd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3988135303946105762, guid: 0c17ad1e13854da4180df4d47c47a0dd, type: 3}
       propertyPath: playerHealth
