@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     float elapsedTime;
-    bool timerRunning = false;
+    bool timerRunning = true;
     private Vector3 lastPosition;
 
     //Initializes player location. Used as referance for timer start.
