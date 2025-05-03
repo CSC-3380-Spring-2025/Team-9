@@ -24,7 +24,12 @@ public class FloatingHead : BaseEnemy//  MortalEnemy, IDamageable<int>
     // Update is called once per frame
     void Update()
     {
-        if (gameObject == null) return;
+        CheckDistance();
+    }
+
+    void CheckDistance()
+    {
+        if (player == null || gameObject == null) return;
         float distance = Vector2.Distance(transform.position , player.transform.position);    
         if (distance <= threshold)
         {
@@ -46,7 +51,7 @@ public class FloatingHead : BaseEnemy//  MortalEnemy, IDamageable<int>
 
     public void Die()
     {
-        Destroy(gameObject, 0.2f);
+        Destroy(gameObject);
     }
 
 
