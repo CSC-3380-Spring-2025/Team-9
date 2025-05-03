@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour, IDamageable<DamageData>
 {
-    [SerializeField] private FlashDamage _flashDamage;
+    [SerializeField] protected FlashDamage _flashDamage;
     public int healthPoints = 100;//max health that you start with
     public int currentHealthPoints;//variable health from damage and healing
     private bool isDead = false;
