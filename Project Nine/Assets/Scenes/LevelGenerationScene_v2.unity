@@ -374,6 +374,14 @@ PrefabInstance:
       propertyPath: MoveSpeed
       value: 3.25
       objectReference: {fileID: 0}
+    - target: {fileID: 1954795164160381082, guid: 0c17ad1e13854da4180df4d47c47a0dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954795164160381082, guid: 0c17ad1e13854da4180df4d47c47a0dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2748888851157417317, guid: 0c17ad1e13854da4180df4d47c47a0dd, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -477,6 +485,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9107887946238687963, guid: 0c17ad1e13854da4180df4d47c47a0dd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 539595815}
+    - targetCorrespondingSourceObject: {fileID: 9107887946238687963, guid: 0c17ad1e13854da4180df4d47c47a0dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 539595829}
   m_SourcePrefab: {fileID: 100100000, guid: 0c17ad1e13854da4180df4d47c47a0dd, type: 3}
 --- !u!1 &303969995
 GameObject:
@@ -525,6 +536,11 @@ Transform:
   - {fileID: 997048606}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &310953932 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1954795164160381082, guid: 0c17ad1e13854da4180df4d47c47a0dd, type: 3}
+  m_PrefabInstance: {fileID: 229274907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &318584032 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1822956783165590428, guid: 0c899656b955d0546af4d44967a132ca, type: 3}
@@ -708,6 +724,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3b4bd63ebc5a0438052c2c297ad8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &539595829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539595791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c7e9214bd2e79344b146ea746ccde65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 310953932}
+  attackRange: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &544068264
 GameObject:
   m_ObjectHideFlags: 0
