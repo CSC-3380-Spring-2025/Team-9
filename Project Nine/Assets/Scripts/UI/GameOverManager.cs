@@ -41,7 +41,6 @@ public class GameOverManager : MonoBehaviour
 
     public void Testing_OnPlayerDeath(object sender, EventArgs  e)
     {
-        Debug.Log("Event was listened to susccesfully. the player died");
         if (gameObjects == null)
         {
             Debug.Log("Array of objects to destroy on player death has not been initialized");

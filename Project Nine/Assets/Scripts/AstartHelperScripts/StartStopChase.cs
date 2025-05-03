@@ -33,6 +33,17 @@ public class StartStopChase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+       DecideBehavior();
+
+    
+    }
+
+
+    void DecideBehavior()
+    {
+        if (player == null || gameObject == null) return;
+
         float distance = Vector3.Distance(transform.position, player.position);
         if (distance <= distanceThreshold && isPatrolling)
         {
@@ -51,8 +62,6 @@ public class StartStopChase : MonoBehaviour
         {
             StopChase();
         }
-
-    
     }
 
     void StartChase()

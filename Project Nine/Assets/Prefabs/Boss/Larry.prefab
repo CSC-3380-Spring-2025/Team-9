@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 6678320801288047750}
   - component: {fileID: 2040086180773635353}
   - component: {fileID: 5599328803449718773}
+  - component: {fileID: 7935744580478764667}
   m_Layer: 8
   m_Name: Larry
   m_TagString: Untagged
@@ -257,7 +258,7 @@ SpriteRenderer:
   m_SortingLayerID: -1193891975
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -1526642489, guid: 5d64e04f5f772f44ab0a563a36524538, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -367,3 +368,26 @@ MonoBehaviour:
   bonesPerVolley1: 6
   bonesPerVolley2: 12
   boneSpeed: 6
+  stopDuration: 0.5
+--- !u!95 &7935744580478764667
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4944330490726803107}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 745da4ec24785164b8b97bbc9881c716, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
