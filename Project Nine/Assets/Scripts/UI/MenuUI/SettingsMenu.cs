@@ -1,4 +1,4 @@
-using UnityEditor;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -59,7 +59,7 @@ public class SettingsMenu : MonoBehaviour
     }
 
     // function to set the volume
-    public void SetVolume(float volume)
+    public static void SetVolume(float volume)
     {
         AudioListener.volume = volume;
         PlayerPrefs.SetFloat("GameVolume", volume);
@@ -67,7 +67,7 @@ public class SettingsMenu : MonoBehaviour
     }
     
     // function to set fullscreen on and off
-    public void SetFullscreen(bool isFullscreen)
+    public static void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
         PlayerPrefs.SetInt("IsFullscreen", isFullscreen ? 1 : 0);
@@ -88,6 +88,7 @@ public class SettingsMenu : MonoBehaviour
     // destroys menu object
     public void CloseMenu()
     {
+        FindFirstObjectByType<PauseManager>().ResumeGame();
         Destroy(gameObject);
     }
 }
