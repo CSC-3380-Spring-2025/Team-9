@@ -5,7 +5,7 @@ Communications Lead: Nicolae David-Trouard (nicolae-dt)\
 Git Master: Diego Albertini (Guinchi)\
 Design Lead: Aedan DeFrates (Fhlic)\
 Quality Assurance Tester: Troy Boatner (TroyBoatner)\
-Quality Assurance Tester: Carlos Rodriguez  (carlosrodcor)
+Quality Assurance Tester: Carlos Rodriguez Coronel (carlosrodcor)
 
 # About Our Software
 
@@ -21,7 +21,7 @@ Styles Guide(s): [link](https://learn.microsoft.com/en-us/dotnet/csharp/fundamen
 
 ## Unity Version
 
-[Download](https://unity.com/download) Unity Hub
+[Download](https://unity.com/download) Unity Hub\
 [Download](https://unity.com/releases/editor/whats-new/6000.0.34#notes) Unity Version 6000.0.34f1  
 
 After Cloning the Project, open Unity Hub and go to Add > Add Project From Disk. Navigate to the folder of the repository and select it. Open the Project using the Unity Hub. Once loaded in the project tab in the unity editor look for the Scenes folder which will be under Assets>Scenes
