@@ -1,56 +1,52 @@
-# [Project Nine] : [Team 9]
+# [Vicarious] : [Team 9]
 # Members
 Project Manager: Andrew Tran (atran53)\
 Communications Lead: Nicolae David-Trouard (nicolae-dt)\
 Git Master: Diego Albertini (Guinchi)\
 Design Lead: Aedan DeFrates (Fhlic)\
-Quality Assurance Tester: Troy Boatner (TroyBoatner)
+Quality Assurance Tester: Troy Boatner (TroyBoatner)\
+Quality Assurance Tester: Carlos Rodriguez  (carlosrodcor)
 
 # About Our Software
 
-Top down roguelike game, with random level generation and pixel art style.
+This is a top down, dungeon roguelike game. It is in 16-bit art style and features unique level generation, light physics, and unique enemy types. The demo features items, these enemy types, and a boss fight.
 
 ## Platforms Tested on
-- MacOS
-- Android
-- iOS
-- Linux
-- Windows
-# Important Links
-Kanban Board: [link]\https://thebestestgroup.atlassian.net/jira/software/projects/C3G/boards/3
-Designs: [link]\
-Styles Guide(s): [link]
+- Mac OS
+- Windows 11
 
-# How to Run Dev and Test Environment
+# Important Links
+Kanban Board:  [link](https://thebestestgroup.atlassian.net/jira/software/projects/C3G/boards/3?atlOrigin=eyJpIjoiOTE1Nzg2ZmNhODQ3NDhjZGEyYzJjMmYyOTE1YjFmNGQiLCJwIjoiaiJ9)\
+Styles Guide(s): [link](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
+
+## Unity Version
+
+[Download](https://unity.com/download) Unity Hub
+[Download](https://unity.com/releases/editor/whats-new/6000.0.34#notes) Unity Version 6000.0.34f1  
+
+After Cloning the Project, open Unity Hub and go to Add > Add Project From Disk. Navigate to the folder of the repository and select it. Open the Project using the Unity Hub. Once loaded in the project tab in the unity editor look for the Scenes folder which will be under Assets>Scenes
+Double click the scene called Menu in the editor, then press play.
+
+Demo walkthrough, once you press play from the menu you will be taken to the first scene, there will be a door to the left of the player that teleports you to the boss room. There are also some items you can pick up and some weapons you can use to damage the boss and enemies, there are a couple enemies in the first scene as well.
+
+# Controls:
+	ESC: Pauses game and opens settings menu
+	TAB: Opens and closes inventory (click and drag)
+	W: Up
+	A: Left
+	S:Down
+	D: Right
+	Left click: Attack
 
 ## Dependencies
-- List all dependencies here
-- Don't forget to include versions
+
+
 ### Downloading Dependencies
-Describe where to download the dependencies here. Some will likely require a web download. Provide links here. For IDE extensions, make sure your project works with the free version of them, and detail which IDE(s) these are available in. 
+
 
 ## Commands
-Describe how the commands and process to launch the project on the main branch in such a way that anyone working on the project knows how to check the affects of any code they add.
-
-```sh
-Example terminal command syntax
-```
-
-It is very common in these sections to see code in peculiar boxes to help them stand out. Check the markdown section of the Project Specifications to see how to add more / customize these.
-
-```python
-def code_highlight_example(m: int, m: float, s: str) -> str:
-	return s + str(n*m)
-```
-
-```java
-public static void main(String[] args){
-	System.out.println("Hello, World!");
-}
-```
-
-```c#
-static void Main(){
-	Console.WriteLine("Hello, World!");
-}
-```
+To clone the repository:
+Open your OS terminal or GitBash and change directory to an appropriate file
+cd C:\Users\Name\Loc\Repositories\RepoDestination
+Use the repo URL, copied from the search bar or from the ‘<> Code’ drop down menu, and paste this command.
+git clone URL
